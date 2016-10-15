@@ -37,16 +37,17 @@ class AppController @Inject()
       .toAbsolutePath
 
   def run(): Boolean = {
-    val attributesReader = CSVReader.open(attributesFile)
-    val elementsReader = CSVReader.open(elementsFile)
+    val attributeRawSpecs = loadRawSpecs(attributesFile)
+    val elementRawSpecs = loadRawSpecs(elementsFile)
 
-    val attributes = attributesReader.allWithHeaders()
-    val elements = elementsReader.allWithHeaders()
-
-    val attributeSpecs = attributes.map(attributeSpecFactory.createSpecs)
-    val elementSpecs = elements.map(elementSpecFactory.createSpecs)
+    val attributeSpecs = attributeRawSpecs.map(attributeSpecFactory.createSpecs)
+    val elementSpecs = elementRawSpecs.map(elementSpecFactory.createSpecs)
 
     attributeCodeGenerator.generate(generatedCodeBaseDirectory, attributeSpecs) &&
         elementCodeGenerator.generate(generatedCodeBaseDirectory, elementSpecs)
+  }
+
+  def loadRawSpecs(file: File): Iterable[Map[String, String]] = {
+    CSVReader.open(file).allWithHeaders()
   }
 }
