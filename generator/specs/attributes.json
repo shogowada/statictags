@@ -1,0 +1,657 @@
+[
+  {
+    "attribute": "abbr",
+    "elements": "th",
+    "value": "Text*"
+  },
+  {
+    "attribute": "accept",
+    "elements": "input",
+    "value": "Set of comma-separated tokens* consisting of valid MIME types with no parameters or audio/*, video/*, or image/*"
+  },
+  {
+    "attribute": "accept-charset",
+    "elements": "form",
+    "value": "Ordered set of unique space-separated tokens, ASCII case-insensitive, consisting of labels of ASCII-compatible character encodings*"
+  },
+  {
+    "attribute": "accesskey",
+    "elements": "HTML elements",
+    "value": "Ordered set of unique space-separated tokens, case-sensitive, consisting of one Unicode code point in length"
+  },
+  {
+    "attribute": "action",
+    "elements": "form",
+    "value": "Valid non-empty URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "alt",
+    "elements": "area; img; input",
+    "value": "Text*"
+  },
+  {
+    "attribute": "async",
+    "elements": "script",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "autocomplete",
+    "elements": "form",
+    "value": "on"
+  },
+  {
+    "attribute": "autocomplete",
+    "elements": "input; select; textarea",
+    "value": "Autofill field name and related tokens*"
+  },
+  {
+    "attribute": "autofocus",
+    "elements": "button; input; keygen; select; textarea",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "autoplay",
+    "elements": "audio; video",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "border",
+    "elements": "table",
+    "value": "The empty string, or \"1"
+  },
+  {
+    "attribute": "challenge",
+    "elements": "keygen",
+    "value": "Text"
+  },
+  {
+    "attribute": "charset",
+    "elements": "meta",
+    "value": "Encoding label*"
+  },
+  {
+    "attribute": "charset",
+    "elements": "script",
+    "value": "Encoding label*"
+  },
+  {
+    "attribute": "checked",
+    "elements": "input",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "cite",
+    "elements": "blockquote; del; ins; q",
+    "value": "Valid URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "class",
+    "elements": "HTML elements",
+    "value": "Set of space-separated tokens"
+  },
+  {
+    "attribute": "cols",
+    "elements": "textarea",
+    "value": "Valid non-negative integer greater than zero"
+  },
+  {
+    "attribute": "colspan",
+    "elements": "td; th",
+    "value": "Valid non-negative integer greater than zero"
+  },
+  {
+    "attribute": "content",
+    "elements": "meta",
+    "value": "Text*"
+  },
+  {
+    "attribute": "contenteditable",
+    "elements": "HTML elements",
+    "value": "true"
+  },
+  {
+    "attribute": "controls",
+    "elements": "audio; video",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "coords",
+    "elements": "area",
+    "value": "Valid list of integers*"
+  },
+  {
+    "attribute": "crossorigin",
+    "elements": "audio; img; link; script; video",
+    "value": "anonymous"
+  },
+  {
+    "attribute": "data",
+    "elements": "object",
+    "value": "Valid non-empty URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "datetime",
+    "elements": "del; ins",
+    "value": "Valid date string with optional time"
+  },
+  {
+    "attribute": "datetime",
+    "elements": "time",
+    "value": "Valid month string, valid date string, valid yearless date string, valid time string, valid floating date and time string, valid time-zone offset string, valid global date and time string, valid week string, valid non-negative integer, or valid duration string"
+  },
+  {
+    "attribute": "default",
+    "elements": "track",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "defer",
+    "elements": "script",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "dir",
+    "elements": "HTML elements",
+    "value": "ltr"
+  },
+  {
+    "attribute": "dir",
+    "elements": "bdo",
+    "value": "ltr"
+  },
+  {
+    "attribute": "dirname",
+    "elements": "input; textarea",
+    "value": "Text*"
+  },
+  {
+    "attribute": "disabled",
+    "elements": "button; fieldset; input; keygen; optgroup; option; select; textarea",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "download",
+    "elements": "a; area",
+    "value": "Text"
+  },
+  {
+    "attribute": "enctype",
+    "elements": "form",
+    "value": "application/x-www-form-urlencoded"
+  },
+  {
+    "attribute": "for",
+    "elements": "label",
+    "value": "ID*"
+  },
+  {
+    "attribute": "for",
+    "elements": "output",
+    "value": "Unordered set of unique space-separated tokens, case-sensitive, consisting of IDs*"
+  },
+  {
+    "attribute": "form",
+    "elements": "button; fieldset; input; keygen; label; object; output; select; textarea",
+    "value": "ID*"
+  },
+  {
+    "attribute": "formaction",
+    "elements": "button; input",
+    "value": "Valid non-empty URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "formenctype",
+    "elements": "button; input",
+    "value": "application/x-www-form-urlencoded"
+  },
+  {
+    "attribute": "formmethod",
+    "elements": "button; input",
+    "value": "GET"
+  },
+  {
+    "attribute": "formnovalidate",
+    "elements": "button; input",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "formtarget",
+    "elements": "button; input",
+    "value": "Valid browsing context name or keyword"
+  },
+  {
+    "attribute": "headers",
+    "elements": "td; th",
+    "value": "Unordered set of unique space-separated tokens, case-sensitive, consisting of IDs*"
+  },
+  {
+    "attribute": "height",
+    "elements": "canvas; embed; iframe; img; input; object; video",
+    "value": "Valid non-negative integer"
+  },
+  {
+    "attribute": "hidden",
+    "elements": "HTML elements",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "high",
+    "elements": "meter",
+    "value": "Valid floating-point number*"
+  },
+  {
+    "attribute": "href",
+    "elements": "a; area",
+    "value": "Valid URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "href",
+    "elements": "link",
+    "value": "Valid non-empty URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "href",
+    "elements": "base",
+    "value": "Valid URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "hreflang",
+    "elements": "a; area; link",
+    "value": "Valid BCP 47 language tag"
+  },
+  {
+    "attribute": "http-equiv",
+    "elements": "meta",
+    "value": "Text*"
+  },
+  {
+    "attribute": "id",
+    "elements": "HTML elements",
+    "value": "Text*"
+  },
+  {
+    "attribute": "ismap",
+    "elements": "img",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "keytype",
+    "elements": "keygen",
+    "value": "Text*"
+  },
+  {
+    "attribute": "kind",
+    "elements": "track",
+    "value": "subtitles"
+  },
+  {
+    "attribute": "label",
+    "elements": "optgroup; option; track",
+    "value": "Text"
+  },
+  {
+    "attribute": "lang",
+    "elements": "HTML elements",
+    "value": "Valid BCP 47 language tag or the empty string"
+  },
+  {
+    "attribute": "list",
+    "elements": "input",
+    "value": "ID*"
+  },
+  {
+    "attribute": "loop",
+    "elements": "audio; video",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "low",
+    "elements": "meter",
+    "value": "Valid floating-point number*"
+  },
+  {
+    "attribute": "manifest",
+    "elements": "html",
+    "value": "Valid non-empty URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "max",
+    "elements": "input",
+    "value": "Varies*"
+  },
+  {
+    "attribute": "max",
+    "elements": "meter; progress",
+    "value": "Valid floating-point number*"
+  },
+  {
+    "attribute": "maxlength",
+    "elements": "input; textarea",
+    "value": "Valid non-negative integer"
+  },
+  {
+    "attribute": "media",
+    "elements": "link; source; style",
+    "value": "Valid media query"
+  },
+  {
+    "attribute": "mediagroup",
+    "elements": "audio; video",
+    "value": "Text"
+  },
+  {
+    "attribute": "method",
+    "elements": "form",
+    "value": "GET"
+  },
+  {
+    "attribute": "min",
+    "elements": "input",
+    "value": "Varies*"
+  },
+  {
+    "attribute": "min",
+    "elements": "meter",
+    "value": "Valid floating-point number*"
+  },
+  {
+    "attribute": "minlength",
+    "elements": "input; textarea",
+    "value": "Valid non-negative integer"
+  },
+  {
+    "attribute": "multiple",
+    "elements": "input; select",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "muted",
+    "elements": "audio; video",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "name",
+    "elements": "button; fieldset; input; keygen; output; select; textarea",
+    "value": "Text*"
+  },
+  {
+    "attribute": "name",
+    "elements": "form",
+    "value": "Text*"
+  },
+  {
+    "attribute": "name",
+    "elements": "iframe; object",
+    "value": "Valid browsing context name or keyword"
+  },
+  {
+    "attribute": "name",
+    "elements": "map",
+    "value": "Text*"
+  },
+  {
+    "attribute": "name",
+    "elements": "meta",
+    "value": "Text*"
+  },
+  {
+    "attribute": "name",
+    "elements": "param",
+    "value": "Text"
+  },
+  {
+    "attribute": "novalidate",
+    "elements": "form",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "optimum",
+    "elements": "meter",
+    "value": "Valid floating-point number*"
+  },
+  {
+    "attribute": "pattern",
+    "elements": "input",
+    "value": "Regular expression matching the JavaScript Pattern production PING"
+  },
+  {
+    "attribute": "placeholder",
+    "elements": "input; textarea",
+    "value": "Text*"
+  },
+  {
+    "attribute": "poster",
+    "elements": "video",
+    "value": "Valid non-empty URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "preload",
+    "elements": "audio; video",
+    "value": "none"
+  },
+  {
+    "attribute": "readonly",
+    "elements": "input; textarea",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "rel",
+    "elements": "a; area; link",
+    "value": "Set of space-separated tokens*"
+  },
+  {
+    "attribute": "required",
+    "elements": "input; select; textarea",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "reversed",
+    "elements": "ol",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "rows",
+    "elements": "textarea",
+    "value": "Valid non-negative integer greater than zero"
+  },
+  {
+    "attribute": "rowspan",
+    "elements": "td; th",
+    "value": "Valid non-negative integer"
+  },
+  {
+    "attribute": "sandbox",
+    "elements": "iframe",
+    "value": "Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of \"allow-forms\", \"allow-pointer-lock\", \"allow-popups\", \"allow-same-origin\", \"allow-scripts and \"allow-top-navigation"
+  },
+  {
+    "attribute": "spellcheck",
+    "elements": "HTML elements",
+    "value": "true"
+  },
+  {
+    "attribute": "scope",
+    "elements": "th",
+    "value": "row"
+  },
+  {
+    "attribute": "selected",
+    "elements": "option",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "shape",
+    "elements": "area",
+    "value": "circle"
+  },
+  {
+    "attribute": "size",
+    "elements": "input; select",
+    "value": "Valid non-negative integer greater than zero"
+  },
+  {
+    "attribute": "sizes",
+    "elements": "link",
+    "value": "Unordered set of unique space-separated tokens, ASCII case-insensitive, consisting of sizes*"
+  },
+  {
+    "attribute": "span",
+    "elements": "col; colgroup",
+    "value": "Valid non-negative integer greater than zero"
+  },
+  {
+    "attribute": "src",
+    "elements": "audio; embed; iframe; img; input; script; source; track; video",
+    "value": "Valid non-empty URL potentially surrounded by spaces"
+  },
+  {
+    "attribute": "srcdoc",
+    "elements": "iframe",
+    "value": "The source of an iframe srcdoc document*"
+  },
+  {
+    "attribute": "srclang",
+    "elements": "track",
+    "value": "Valid BCP 47 language tag"
+  },
+  {
+    "attribute": "start",
+    "elements": "ol",
+    "value": "Valid integer"
+  },
+  {
+    "attribute": "step",
+    "elements": "input",
+    "value": "Valid floating-point number greater than zero, or \"any"
+  },
+  {
+    "attribute": "style",
+    "elements": "HTML elements",
+    "value": "CSS declarations*"
+  },
+  {
+    "attribute": "tabindex",
+    "elements": "HTML elements",
+    "value": "Valid integer"
+  },
+  {
+    "attribute": "target",
+    "elements": "a; area",
+    "value": "Valid browsing context name or keyword"
+  },
+  {
+    "attribute": "target",
+    "elements": "base",
+    "value": "Valid browsing context name or keyword"
+  },
+  {
+    "attribute": "target",
+    "elements": "form",
+    "value": "Valid browsing context name or keyword"
+  },
+  {
+    "attribute": "title",
+    "elements": "HTML elements",
+    "value": "Text"
+  },
+  {
+    "attribute": "title",
+    "elements": "abbr; dfn",
+    "value": "Text"
+  },
+  {
+    "attribute": "title",
+    "elements": "input",
+    "value": "Text"
+  },
+  {
+    "attribute": "title",
+    "elements": "link",
+    "value": "Text"
+  },
+  {
+    "attribute": "title",
+    "elements": "link; style",
+    "value": "Text"
+  },
+  {
+    "attribute": "translate",
+    "elements": "HTML elements",
+    "value": "yes"
+  },
+  {
+    "attribute": "type",
+    "elements": "a; area; link",
+    "value": "Valid MIME type"
+  },
+  {
+    "attribute": "type",
+    "elements": "button",
+    "value": "submit"
+  },
+  {
+    "attribute": "type",
+    "elements": "embed; object; script; source; style",
+    "value": "Valid MIME type"
+  },
+  {
+    "attribute": "type",
+    "elements": "input",
+    "value": "input type keyword"
+  },
+  {
+    "attribute": "type",
+    "elements": "ol",
+    "value": 1
+  },
+  {
+    "attribute": "typemustmatch",
+    "elements": "object",
+    "value": "Boolean attribute"
+  },
+  {
+    "attribute": "usemap",
+    "elements": "img; object",
+    "value": "Valid hash-name reference*"
+  },
+  {
+    "attribute": "value",
+    "elements": "button; option",
+    "value": "Text"
+  },
+  {
+    "attribute": "value",
+    "elements": "data",
+    "value": "Text*"
+  },
+  {
+    "attribute": "value",
+    "elements": "input",
+    "value": "Varies*"
+  },
+  {
+    "attribute": "value",
+    "elements": "li",
+    "value": "Valid integer"
+  },
+  {
+    "attribute": "value",
+    "elements": "meter; progress",
+    "value": "Valid floating-point number"
+  },
+  {
+    "attribute": "value",
+    "elements": "param",
+    "value": "Text"
+  },
+  {
+    "attribute": "width",
+    "elements": "canvas; embed; iframe; img; input; object; video",
+    "value": "Valid non-negative integer"
+  },
+  {
+    "attribute": "wrap",
+    "elements": "textarea",
+    "value": "soft"
+  }
+]

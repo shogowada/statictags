@@ -1,0 +1,723 @@
+[
+  {
+    "element": "a",
+    "parents": "phrasing",
+    "children": "transparent*",
+    "attributes": "globals; href; target; download; PING rel; hreflang; type",
+    "interface": "HTMLAnchorElement"
+  },
+  {
+    "element": "abbr",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "address",
+    "parents": "flow",
+    "children": "flow*",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "area",
+    "parents": "phrasing*",
+    "children": "empty",
+    "attributes": "globals; alt; coords; shape; href; target; download; PING rel; hreflang; type",
+    "interface": "HTMLAreaElement"
+  },
+  {
+    "element": "article",
+    "parents": "flow",
+    "children": "flow",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "aside",
+    "parents": "flow",
+    "children": "flow",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "audio",
+    "parents": "phrasing",
+    "children": "source*; transparent*",
+    "attributes": "globals; src; crossorigin; preload; autoplay; mediagroup; loop; muted; controls",
+    "interface": "HTMLAudioElement"
+  },
+  {
+    "element": "b",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "base",
+    "parents": "head; template",
+    "children": "empty",
+    "attributes": "globals; href; target",
+    "interface": "HTMLBaseElement"
+  },
+  {
+    "element": "bdi",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "bdo",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "blockquote",
+    "parents": "flow",
+    "children": "flow",
+    "attributes": "globals; cite",
+    "interface": "HTMLQuoteElement"
+  },
+  {
+    "element": "body",
+    "parents": "html",
+    "children": "flow",
+    "attributes": "globals; onafterprint; onbeforeprint; onbeforeunload; onhashchange; onmessage; onoffline; ononline; onpagehide; onpageshow; onpopstate; onstorage; onunload",
+    "interface": "HTMLBodyElement"
+  },
+  {
+    "element": "br",
+    "parents": "phrasing",
+    "children": "empty",
+    "attributes": "globals",
+    "interface": "HTMLBRElement"
+  },
+  {
+    "element": "button",
+    "parents": "phrasing",
+    "children": "phrasing*",
+    "attributes": "globals; autofocus; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; name; type; value",
+    "interface": "HTMLButtonElement"
+  },
+  {
+    "element": "canvas",
+    "parents": "phrasing",
+    "children": "transparent",
+    "attributes": "globals; width; height",
+    "interface": "HTMLCanvasElement"
+  },
+  {
+    "element": "caption",
+    "parents": "table; template",
+    "children": "flow*",
+    "attributes": "globals",
+    "interface": "HTMLTableCaptionElement"
+  },
+  {
+    "element": "cite",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "code",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "col",
+    "parents": "colgroup; template",
+    "children": "empty",
+    "attributes": "globals; span",
+    "interface": "HTMLTableColElement"
+  },
+  {
+    "element": "colgroup",
+    "parents": "table; template",
+    "children": "col*; script-supporting elements*",
+    "attributes": "globals; span",
+    "interface": "HTMLTableColElement"
+  },
+  {
+    "element": "data",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals; value",
+    "interface": "HTMLDataElement"
+  },
+  {
+    "element": "datalist",
+    "parents": "phrasing",
+    "children": "phrasing; option",
+    "attributes": "globals",
+    "interface": "HTMLDataListElement"
+  },
+  {
+    "element": "dd",
+    "parents": "dl; template",
+    "children": "flow",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "del",
+    "parents": "phrasing",
+    "children": "transparent",
+    "attributes": "globals; cite; datetime",
+    "interface": "HTMLModElement"
+  },
+  {
+    "element": "dfn",
+    "parents": "phrasing",
+    "children": "phrasing*",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "div",
+    "parents": "flow",
+    "children": "flow",
+    "attributes": "globals",
+    "interface": "HTMLDivElement"
+  },
+  {
+    "element": "dl",
+    "parents": "flow",
+    "children": "dt*; dd*; script-supporting elements",
+    "attributes": "globals",
+    "interface": "HTMLDListElement"
+  },
+  {
+    "element": "dt",
+    "parents": "dl; template",
+    "children": "flow*",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "em",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "embed",
+    "parents": "phrasing",
+    "children": "empty",
+    "attributes": "globals; src; type; width; height; any*",
+    "interface": "HTMLEmbedElement"
+  },
+  {
+    "element": "fieldset",
+    "parents": "flow",
+    "children": "legend*; flow",
+    "attributes": "globals; disabled; form; name",
+    "interface": "HTMLFieldSetElement"
+  },
+  {
+    "element": "figcaption",
+    "parents": "figure; template",
+    "children": "flow",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "figure",
+    "parents": "flow",
+    "children": "figcaption*; flow",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "footer",
+    "parents": "flow",
+    "children": "flow*",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "form",
+    "parents": "flow",
+    "children": "flow*",
+    "attributes": "globals; accept-charset; action; autocomplete; enctype; method; name; novalidate; target",
+    "interface": "HTMLFormElement"
+  },
+  {
+    "element": "h1, h2, h3, h4, h5, h6 hgroup removed SF flow",
+    "parents": "flow; heading",
+    "children": "",
+    "attributes": "",
+    "interface": ""
+  },
+  {
+    "element": "phrasingglobalsHTMLHeadingElementhead",
+    "parents": "html",
+    "children": "metadata content*",
+    "attributes": "globals",
+    "interface": "HTMLHeadElement"
+  },
+  {
+    "element": "header",
+    "parents": "flow",
+    "children": "flow*",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "FORK: removed hgroup\nhr",
+    "parents": "",
+    "children": "",
+    "attributes": "",
+    "interface": ""
+  },
+  {
+    "element": "Thematic breakflowflowemptyglobalsHTMLHRElementhtml",
+    "parents": "none*",
+    "children": "head*; body*",
+    "attributes": "globals; manifest",
+    "interface": "HTMLHtmlElement"
+  },
+  {
+    "element": "i",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "iframe",
+    "parents": "phrasing",
+    "children": "text*",
+    "attributes": "globals; src; srcdoc; name; sandbox; width; height",
+    "interface": "HTMLIFrameElement"
+  },
+  {
+    "element": "img",
+    "parents": "phrasing",
+    "children": "empty",
+    "attributes": "globals; alt; src; crossorigin; usemap; ismap; width; height",
+    "interface": "HTMLImageElement"
+  },
+  {
+    "element": "input",
+    "parents": "phrasing",
+    "children": "empty",
+    "attributes": "globals; accept; alt; autocomplete; autofocus; checked; dirname; disabled; form; formaction; formenctype; formmethod; formnovalidate; formtarget; height; list; max; maxlength; min; minlength; multiple; name; pattern; placeholder; readonly; required; size; src; step; type; value; width",
+    "interface": "HTMLInputElement"
+  },
+  {
+    "element": "ins",
+    "parents": "phrasing",
+    "children": "transparent",
+    "attributes": "globals; cite; datetime",
+    "interface": "HTMLModElement"
+  },
+  {
+    "element": "kbd",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "keygen",
+    "parents": "phrasing",
+    "children": "empty",
+    "attributes": "globals; autofocus; challenge; disabled; form; keytype; name",
+    "interface": "HTMLKeygenElement"
+  },
+  {
+    "element": "label",
+    "parents": "phrasing",
+    "children": "phrasing*",
+    "attributes": "globals; form; for",
+    "interface": "HTMLLabelElement"
+  },
+  {
+    "element": "legend",
+    "parents": "fieldset; template",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLLegendElement"
+  },
+  {
+    "element": "li",
+    "parents": "ol; ul; template",
+    "children": "flow",
+    "attributes": "globals; value*",
+    "interface": "HTMLLIElement"
+  },
+  {
+    "element": "link",
+    "parents": "head; template; noscript*; phrasing*",
+    "children": "empty",
+    "attributes": "globals; href; crossorigin; rel; media; hreflang; type; sizes",
+    "interface": "HTMLLinkElement"
+  },
+  {
+    "element": "main is main content of doc not body SF\nmain",
+    "parents": "",
+    "children": "",
+    "attributes": "",
+    "interface": ""
+  },
+  {
+    "element": "Main content of a documentflowflowflow*globalsHTMLElementmap",
+    "parents": "phrasing",
+    "children": "transparent; area*",
+    "attributes": "globals; name",
+    "interface": "HTMLMapElement"
+  },
+  {
+    "element": "mark",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "meta",
+    "parents": "head; template; noscript*; phrasing*",
+    "children": "empty",
+    "attributes": "globals; name; http-equiv; content; charset",
+    "interface": "HTMLMetaElement"
+  },
+  {
+    "element": "meter",
+    "parents": "phrasing",
+    "children": "phrasing*",
+    "attributes": "globals; value; min; max; low; high; optimum",
+    "interface": "HTMLMeterElement"
+  },
+  {
+    "element": "nav",
+    "parents": "flow",
+    "children": "flow",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "noscript",
+    "parents": "head*; template*; phrasing*",
+    "children": "varies*",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "object",
+    "parents": "phrasing",
+    "children": "param*; transparent",
+    "attributes": "globals; data; type; typemustmatch; name; usemap; form; width; height",
+    "interface": "HTMLObjectElement"
+  },
+  {
+    "element": "ol",
+    "parents": "flow",
+    "children": "li; script-supporting elements",
+    "attributes": "globals; reversed; start; type",
+    "interface": "HTMLOListElement"
+  },
+  {
+    "element": "optgroup",
+    "parents": "select; template",
+    "children": "option; script-supporting elements",
+    "attributes": "globals; disabled; label",
+    "interface": "HTMLOptGroupElement"
+  },
+  {
+    "element": "option",
+    "parents": "select; datalist; optgroup; template",
+    "children": "text*",
+    "attributes": "globals; disabled; label; selected; value",
+    "interface": "HTMLOptionElement"
+  },
+  {
+    "element": "output",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals; for; form; name",
+    "interface": "HTMLOutputElement"
+  },
+  {
+    "element": "p",
+    "parents": "flow",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLParagraphElement"
+  },
+  {
+    "element": "param",
+    "parents": "object; template",
+    "children": "empty",
+    "attributes": "globals; name; value",
+    "interface": "HTMLParamElement"
+  },
+  {
+    "element": "pre",
+    "parents": "flow",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLPreElement"
+  },
+  {
+    "element": "progress",
+    "parents": "phrasing",
+    "children": "phrasing*",
+    "attributes": "globals; value; max",
+    "interface": "HTMLProgressElement"
+  },
+  {
+    "element": "q",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals; cite",
+    "interface": "HTMLQuoteElement"
+  },
+  {
+    "element": "FORK\nrb",
+    "parents": "",
+    "children": "",
+    "attributes": "",
+    "interface": ""
+  },
+  {
+    "element": "Ruby basenoneruby; templatephrasingglobalsHTMLElement/FORK\nrp",
+    "parents": "",
+    "children": "",
+    "attributes": "",
+    "interface": ""
+  },
+  {
+    "element": "Parenthesis for ruby annotation textnoneruby; templatephrasingglobalsHTMLElementrt",
+    "parents": "ruby; FORK rtc; /FORK template",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "FORK\nrtc",
+    "parents": "",
+    "children": "",
+    "attributes": "",
+    "interface": ""
+  },
+  {
+    "element": "Ruby annotation text containernoneruby; templatephrasingglobalsHTMLElement/FORK\nruby",
+    "parents": "",
+    "children": "",
+    "attributes": "",
+    "interface": ""
+  },
+  {
+    "element": "Ruby annotation(s)flow; phrasingphrasingphrasing; rp; rt; FORK rb; rtc* /FORKglobalsHTMLElements",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "samp",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "script",
+    "parents": "head; phrasing; script-supporting",
+    "children": "script, data, or script documentation*",
+    "attributes": "globals; src; type; charset; async; defer; crossorigin",
+    "interface": "HTMLScriptElement"
+  },
+  {
+    "element": "section",
+    "parents": "flow",
+    "children": "flow",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "select",
+    "parents": "phrasing",
+    "children": "option, optgroup",
+    "attributes": "globals; autofocus; disabled; form; multiple; name; required; size",
+    "interface": "HTMLSelectElement"
+  },
+  {
+    "element": "small",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "source",
+    "parents": "video; audio; template",
+    "children": "empty",
+    "attributes": "globals; src; type; media",
+    "interface": "HTMLSourceElement"
+  },
+  {
+    "element": "span",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLSpanElement"
+  },
+  {
+    "element": "strong",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "style",
+    "parents": "head; noscript*; flow*",
+    "children": "varies*",
+    "attributes": "globals; media; type",
+    "interface": "HTMLStyleElement"
+  },
+  {
+    "element": "sub",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "sup",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "table",
+    "parents": "flow",
+    "children": "caption*; colgroup*; thead*; tbody*; tfoot*; tr*; script-supporting elements",
+    "attributes": "globals; FORK:table border not in WHATWG spec border",
+    "interface": "HTMLTableElement"
+  },
+  {
+    "element": "tbody",
+    "parents": "table; template",
+    "children": "tr; script-supporting elements",
+    "attributes": "globals",
+    "interface": "HTMLTableSectionElement"
+  },
+  {
+    "element": "td",
+    "parents": "tr; template",
+    "children": "flow",
+    "attributes": "globals; colspan; rowspan; headers",
+    "interface": "HTMLTableDataCellElement"
+  },
+  {
+    "element": "template",
+    "parents": "metadata; phrasing; script-supporting; colgroup*",
+    "children": "it's complicated*",
+    "attributes": "globals",
+    "interface": "HTMLTemplateElement"
+  },
+  {
+    "element": "textarea",
+    "parents": "phrasing",
+    "children": "text",
+    "attributes": "globals; autofocus; cols; dirname; disabled; form; maxlength; minlength; name; placeholder; readonly; required; rows; wrap",
+    "interface": "HTMLTextAreaElement"
+  },
+  {
+    "element": "tfoot",
+    "parents": "table; template",
+    "children": "tr; script-supporting elements",
+    "attributes": "globals",
+    "interface": "HTMLTableSectionElement"
+  },
+  {
+    "element": "th",
+    "parents": "tr; template",
+    "children": "flow*",
+    "attributes": "globals; colspan; rowspan; headers; scope; abbr",
+    "interface": "HTMLTableHeaderCellElement"
+  },
+  {
+    "element": "thead",
+    "parents": "table; template",
+    "children": "tr; script-supporting elements",
+    "attributes": "globals",
+    "interface": "HTMLTableSectionElement"
+  },
+  {
+    "element": "time",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals; datetime",
+    "interface": "HTMLTimeElement"
+  },
+  {
+    "element": "title",
+    "parents": "head; template",
+    "children": "text*",
+    "attributes": "globals",
+    "interface": "HTMLTitleElement"
+  },
+  {
+    "element": "tr",
+    "parents": "table; thead; tbody; tfoot; template",
+    "children": "th*; td; script-supporting elements",
+    "attributes": "globals",
+    "interface": "HTMLTableRowElement"
+  },
+  {
+    "element": "track",
+    "parents": "audio; video; template",
+    "children": "empty",
+    "attributes": "globals; default; kind; label; src; srclang",
+    "interface": "HTMLTrackElement"
+  },
+  {
+    "element": "u",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "ul",
+    "parents": "flow",
+    "children": "li; script-supporting elements",
+    "attributes": "globals",
+    "interface": "HTMLUListElement"
+  },
+  {
+    "element": "var",
+    "parents": "phrasing",
+    "children": "phrasing",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  },
+  {
+    "element": "video",
+    "parents": "phrasing",
+    "children": "source*; transparent*",
+    "attributes": "globals; src; crossorigin; poster; preload; autoplay; mediagroup; loop; muted; controls; width; height",
+    "interface": "HTMLVideoElement"
+  },
+  {
+    "element": "wbr",
+    "parents": "phrasing",
+    "children": "empty",
+    "attributes": "globals",
+    "interface": "HTMLElement"
+  }
+]
