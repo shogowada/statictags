@@ -37,7 +37,7 @@
   {
     "attribute": "autocomplete",
     "elements": "form",
-    "value": "on"
+    "value": "on\"; \"off"
   },
   {
     "attribute": "autocomplete",
@@ -107,7 +107,7 @@
   {
     "attribute": "contenteditable",
     "elements": "HTML elements",
-    "value": "true"
+    "value": "true\"; \"false"
   },
   {
     "attribute": "controls",
@@ -122,7 +122,7 @@
   {
     "attribute": "crossorigin",
     "elements": "audio; img; link; script; video",
-    "value": "anonymous"
+    "value": "anonymous\"; \"use-credentials"
   },
   {
     "attribute": "data",
@@ -152,12 +152,12 @@
   {
     "attribute": "dir",
     "elements": "HTML elements",
-    "value": "ltr"
+    "value": "ltr\"; \"rtl\"; \"auto"
   },
   {
     "attribute": "dir",
     "elements": "bdo",
-    "value": "ltr"
+    "value": "ltr\"; \"rtl"
   },
   {
     "attribute": "dirname",
@@ -177,7 +177,7 @@
   {
     "attribute": "enctype",
     "elements": "form",
-    "value": "application/x-www-form-urlencoded"
+    "value": "application/x-www-form-urlencoded\"; \"multipart/form-data\"; \"text/plain"
   },
   {
     "attribute": "for",
@@ -202,12 +202,12 @@
   {
     "attribute": "formenctype",
     "elements": "button; input",
-    "value": "application/x-www-form-urlencoded"
+    "value": "application/x-www-form-urlencoded\"; \"multipart/form-data\"; \"text/plain"
   },
   {
     "attribute": "formmethod",
     "elements": "button; input",
-    "value": "GET"
+    "value": "GET\"; \"POST"
   },
   {
     "attribute": "formnovalidate",
@@ -282,7 +282,7 @@
   {
     "attribute": "kind",
     "elements": "track",
-    "value": "subtitles"
+    "value": "subtitles\"; \"captions\"; \"descriptions\"; \"chapters\"; \"metadata"
   },
   {
     "attribute": "label",
@@ -342,7 +342,7 @@
   {
     "attribute": "method",
     "elements": "form",
-    "value": "GET"
+    "value": "GET\"; \"POST\"; FORM-DIALOG"
   },
   {
     "attribute": "min",
@@ -427,7 +427,7 @@
   {
     "attribute": "preload",
     "elements": "audio; video",
-    "value": "none"
+    "value": "none\"; \"metadata\"; \"auto"
   },
   {
     "attribute": "readonly",
@@ -467,12 +467,12 @@
   {
     "attribute": "spellcheck",
     "elements": "HTML elements",
-    "value": "true"
+    "value": "true\"; \"false"
   },
   {
     "attribute": "scope",
     "elements": "th",
-    "value": "row"
+    "value": "row\"; \"col\"; \"rowgroup\"; \"colgroup"
   },
   {
     "attribute": "selected",
@@ -482,7 +482,7 @@
   {
     "attribute": "shape",
     "elements": "area",
-    "value": "circle"
+    "value": "circle\"; \"default\"; \"poly\"; \"rect"
   },
   {
     "attribute": "size",
@@ -577,7 +577,7 @@
   {
     "attribute": "translate",
     "elements": "HTML elements",
-    "value": "yes"
+    "value": "yes\"; \"no"
   },
   {
     "attribute": "type",
@@ -587,7 +587,7 @@
   {
     "attribute": "type",
     "elements": "button",
-    "value": "submit"
+    "value": "submit\"; \"reset\"; \"button"
   },
   {
     "attribute": "type",
@@ -602,7 +602,7 @@
   {
     "attribute": "type",
     "elements": "ol",
-    "value": 1
+    "value": "1\"; \"a\"; \"A\"; \"i\"; \"I"
   },
   {
     "attribute": "typemustmatch",
@@ -652,6 +652,6 @@
   {
     "attribute": "wrap",
     "elements": "textarea",
-    "value": "soft"
+    "value": "soft\"; \"hard"
   }
 ]
