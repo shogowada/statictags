@@ -2,7 +2,7 @@ package io.github.shogowada.statictags.generator.element
 
 class ElementSpecFactory {
 
-  def createSpecs(rawSpecs: Iterable[Map[String, String]]): Iterable[ElementSpec] = {
-    Iterable.empty
+  def createSpecs(rawSpec: Map[String, String]): ElementSpec = {
+    null
   }
 }

@@ -43,8 +43,8 @@ class AppController @Inject()
     val attributes = attributesReader.allWithHeaders()
     val elements = elementsReader.allWithHeaders()
 
-    val attributeSpecs = attributeSpecFactory.createSpecs(attributes)
-    val elementSpecs = elementSpecFactory.createSpecs(elements)
+    val attributeSpecs = attributes.map(attributeSpecFactory.createSpecs)
+    val elementSpecs = elements.map(elementSpecFactory.createSpecs)
 
     attributeCodeGenerator.generate(generatedCodeBaseDirectory, attributeSpecs) &&
         elementCodeGenerator.generate(generatedCodeBaseDirectory, elementSpecs)
