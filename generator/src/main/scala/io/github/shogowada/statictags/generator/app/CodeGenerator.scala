@@ -57,6 +57,9 @@ class CodeGenerator @Inject()
 
   def generate(baseDirectory: Path, className: String, lines: List[String]): Unit = {
     Files.createDirectories(baseDirectory)
-    Files.write(baseDirectory.resolve(s"$className.scala"), lines.asJava)
+
+    val fileName = s"$className.scala"
+    Files.write(baseDirectory.resolve(fileName), lines.asJava)
+    Files.write(baseDirectory.resolve(".gitignore"), fileName.getBytes)
   }
 }
