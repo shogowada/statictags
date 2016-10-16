@@ -1,0 +1,14 @@
+package @package
+
+// This file is generated. Do not modify manually.
+object @class {
+
+  object < {
+    @elements
+  }
+
+  object ^ {
+    @attributes
+  }
+
+}
