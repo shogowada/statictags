@@ -13,8 +13,9 @@ class CodeGenerator @Inject()
     attributeCodeGenerator: AttributeCodeGenerator,
     elementCodeGenerator: ElementCodeGenerator
 ) {
-  val templateFilePath = Utils.getFile("StaticTags.scala.template").toPath
   val className = "StaticTags"
+  val fileName = s"$className.scala"
+  val templateFilePath = Utils.getFile(s"$fileName.template").toPath
 
   val packageNamePlaceholder = "@package"
   val classNamePlaceholder = "@class"
@@ -58,8 +59,10 @@ class CodeGenerator @Inject()
   def generate(baseDirectory: Path, className: String, lines: List[String]): Unit = {
     Files.createDirectories(baseDirectory)
 
-    val fileName = s"$className.scala"
     Files.write(baseDirectory.resolve(fileName), lines.asJava)
-    Files.write(baseDirectory.resolve(".gitignore"), fileName.getBytes)
+    Files.write(baseDirectory.resolve(".gitignore"), Seq(
+      "# Generated code",
+      fileName
+    ).asJava)
   }
 }
