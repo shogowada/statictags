@@ -30,8 +30,8 @@ class App @Inject()
     val attributeRawSpecs = loadRawSpecs(attributesFileName)
     val elementRawSpecs = loadRawSpecs(elementsFileName)
 
-    val attributeSpecs = attributeRawSpecs.map(attributeSpecFactory.createSpecs)
-    val elementSpecs = elementRawSpecs.map(elementSpecFactory.createSpecs)
+    val attributeSpecs = attributeRawSpecs.map(attributeSpecFactory.createSpec)
+    val elementSpecs = elementRawSpecs.flatMap(elementSpecFactory.createSpecs)
 
     codeGenerator.generate(
       generatedCodeBaseDirectory,

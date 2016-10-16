@@ -4,7 +4,7 @@ class AttributeSpecFactory {
 
   val nameColumnName = "Attribute"
 
-  def createSpecs(rawSpec: Map[String, String]): AttributeSpec = {
+  def createSpec(rawSpec: Map[String, String]): AttributeSpec = {
     AttributeSpec(
       name = rawSpec.get(nameColumnName).get
     )

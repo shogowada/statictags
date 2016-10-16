@@ -16,6 +16,8 @@ lazy val generator = (project in file("generator"))
       name += "-generator",
       libraryDependencies ++= Seq(
         "com.google.inject" % "guice" % "4.1.0",
-        "com.github.tototoshi" %% "scala-csv" % "1.3.3"
+        "com.github.tototoshi" %% "scala-csv" % "1.3.3",
+
+        "org.scalatest" %% "scalatest" % "3.0.0" % "test"
       )
     )

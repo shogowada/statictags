@@ -4,9 +4,12 @@ class ElementSpecFactory {
 
   val nameColumnName = "Element"
 
-  def createSpecs(rawSpec: Map[String, String]): ElementSpec = {
-    ElementSpec(
-      name = rawSpec.get(nameColumnName).get
-    )
+  def createSpecs(rawSpec: Map[String, String]): Iterable[ElementSpec] = {
+    namesOf(rawSpec)
+        .map(name => ElementSpec(name = name))
+  }
+
+  def namesOf(rawSpec: Map[String, String]): Iterable[String] = {
+    rawSpec.get(nameColumnName).get.split("""\s*,\s*""")
   }
 }
