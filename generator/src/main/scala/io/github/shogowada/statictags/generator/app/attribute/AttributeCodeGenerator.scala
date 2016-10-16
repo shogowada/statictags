@@ -7,6 +7,6 @@ class AttributeCodeGenerator {
   }
 
   def generate(spec: AttributeSpec): String = {
-    s"""lazy val ${spec.name} = Attribute(name = ${spec.name})"""
+    s"""lazy val ${spec.name} = Attribute(name = "${spec.name}")"""
   }
 }

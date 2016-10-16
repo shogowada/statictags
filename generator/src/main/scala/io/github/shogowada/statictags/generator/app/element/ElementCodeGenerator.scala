@@ -7,6 +7,6 @@ class ElementCodeGenerator {
   }
 
   def generate(spec: ElementSpec): String = {
-    s"""lazy val ${spec.name} = Element(name = ${spec.name})"""
+    s"""lazy val ${spec.name} = Element(name = "${spec.name}")"""
   }
 }
