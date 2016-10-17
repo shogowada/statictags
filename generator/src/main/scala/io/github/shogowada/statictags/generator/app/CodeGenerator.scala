@@ -40,29 +40,39 @@ class CodeGenerator @Inject()
     generate(baseDirectory, className, lines)
   }
 
-  def inject(lines: List[String], placeholder: String, replacement: List[String]): List[String] = {
+  private def inject(lines: List[String], placeholder: String, replacementLines: List[String]): List[String] = {
+    val indentedReplacementLines = indentReplacementLines(lines, placeholder, replacementLines)
     inject(
       lines,
       placeholder,
-      replacement.reduce((lhs, rhs) => lhs + System.lineSeparator() + rhs)
+      indentedReplacementLines.reduce((lhs, rhs) => lhs + System.lineSeparator() + rhs)
     )
   }
 
-  def inject(lines: List[String], placeholder: String, replacement: String): List[String] = {
+  private def indentReplacementLines(lines: List[String], placeholder: String, replacementLines: List[String]): List[String] = {
+    val indention = lines.map((line: String) => line.indexOf(placeholder))
+        .filter(index => index >= 0)
+        .head
+    replacementLines.zipWithIndex.map {
+      case (element, index) =>
+        if (index == 0) {
+          element
+        } else {
+          (" " * indention) + element
+        }
+    }
+  }
+
+  private def inject(lines: List[String], placeholder: String, replacement: String): List[String] = {
     lines.map(inject(_, placeholder, replacement))
   }
 
-  def inject(line: String, placeholder: String, replacement: String): String = {
+  private def inject(line: String, placeholder: String, replacement: String): String = {
     line.replaceFirst(placeholder, replacement)
   }
 
-  def generate(baseDirectory: Path, className: String, lines: List[String]): Unit = {
+  private def generate(baseDirectory: Path, className: String, lines: List[String]): Unit = {
     Files.createDirectories(baseDirectory)
-
     Files.write(baseDirectory.resolve(fileName), lines.asJava)
-    Files.write(baseDirectory.resolve(".gitignore"), Seq(
-      "# Generated code",
-      fileName
-    ).asJava)
   }
 }

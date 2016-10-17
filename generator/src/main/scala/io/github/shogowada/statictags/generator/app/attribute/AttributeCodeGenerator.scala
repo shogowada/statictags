@@ -14,6 +14,6 @@ class AttributeCodeGenerator @Inject()
   }
 
   def generate(spec: AttributeSpec): String = {
-    s"""lazy val ${fieldNameFactory.create(spec.name)} = AttributeSpec[String](name = "${spec.name}")"""
+    s"""lazy val ${fieldNameFactory.create(spec.name)}: AttributeSpec[String] = AttributeSpec[String](name = "${spec.name}")"""
   }
 }

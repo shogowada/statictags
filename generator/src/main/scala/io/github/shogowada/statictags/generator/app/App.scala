@@ -4,7 +4,7 @@ import java.nio.file.Paths
 import javax.inject.Inject
 
 import com.github.tototoshi.csv.CSVReader
-import io.github.shogowada.statictags.generator.app.attribute.AttributeSpecFactory
+import io.github.shogowada.statictags.generator.app.attribute.{AttributeSpec, AttributeSpecFactory}
 import io.github.shogowada.statictags.generator.app.element.ElementSpecFactory
 
 class App @Inject()
@@ -36,7 +36,7 @@ class App @Inject()
     codeGenerator.generate(
       generatedCodeBaseDirectory,
       packageName,
-      attributeSpecs,
+      attributeSpecs.toSet.toSeq.sortBy((spec: AttributeSpec) => spec.name),
       elementSpecs
     )
   }

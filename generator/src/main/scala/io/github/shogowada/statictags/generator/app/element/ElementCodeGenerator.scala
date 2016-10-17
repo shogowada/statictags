@@ -14,6 +14,6 @@ class ElementCodeGenerator @Inject()
   }
 
   def generate(spec: ElementSpec): String = {
-    s"""lazy val ${fieldNameFactory.create(spec.name)} = ElementSpec(name = "${spec.name}")"""
+    s"""lazy val ${fieldNameFactory.create(spec.name)}: ElementSpec = ElementSpec(name = "${spec.name}")"""
   }
 }
