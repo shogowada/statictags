@@ -1,4 +1,5 @@
-# statictags
+# Static Tags
+[![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=master)](https://travis-ci.org/shogowada/statictags)
 
 ## Generator
 
