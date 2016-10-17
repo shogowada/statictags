@@ -1,12 +1,19 @@
 package io.github.shogowada.statictags.generator.app.attribute
 
-class AttributeCodeGenerator {
+import javax.inject.Inject
+
+import io.github.shogowada.statictags.generator.app.common.FieldNameFactory
+
+class AttributeCodeGenerator @Inject()
+(
+    fieldNameFactory: FieldNameFactory
+) {
 
   def generate(attributeSpecs: Iterable[AttributeSpec]): List[String] = {
     attributeSpecs.map(generate).toList
   }
 
   def generate(spec: AttributeSpec): String = {
-    s"""lazy val ${spec.name} = Attribute(name = "${spec.name}")"""
+    s"""lazy val ${fieldNameFactory.create(spec.name)} = AttributeSpec[String](name = "${spec.name}")"""
   }
 }

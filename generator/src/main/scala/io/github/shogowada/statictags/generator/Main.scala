@@ -1,6 +1,8 @@
 package io.github.shogowada.statictags.generator
 
 import com.google.inject.{AbstractModule, Guice}
+import io.github.shogowada.statictags.generator.app.attribute.AttributeCodeGenerator
+import io.github.shogowada.statictags.generator.app.element.ElementCodeGenerator
 import io.github.shogowada.statictags.generator.app.{App, CodeGenerator}
 
 object Main {
@@ -18,5 +20,8 @@ class GeneratorModule extends AbstractModule {
     bind(classOf[App])
 
     bind(classOf[CodeGenerator])
+
+    bind(classOf[AttributeCodeGenerator])
+    bind(classOf[ElementCodeGenerator])
   }
 }
