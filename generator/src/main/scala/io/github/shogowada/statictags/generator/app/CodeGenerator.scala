@@ -1,5 +1,6 @@
 package io.github.shogowada.statictags.generator.app
 
+import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path}
 import javax.inject.Inject
 
@@ -26,7 +27,7 @@ class CodeGenerator @Inject()
                packageName: String,
                attributeSpecs: Iterable[AttributeSpec],
                elementSpecs: Iterable[ElementSpec]): Unit = {
-    var lines = Files.readAllLines(templateFilePath).asScala.toList
+    var lines = Files.readAllLines(templateFilePath, StandardCharsets.UTF_8).asScala.toList
 
     lines = inject(lines, packageNamePlaceholder, packageName)
     lines = inject(lines, classNamePlaceholder, className)
@@ -73,6 +74,6 @@ class CodeGenerator @Inject()
 
   private def generate(baseDirectory: Path, className: String, lines: List[String]): Unit = {
     Files.createDirectories(baseDirectory)
-    Files.write(baseDirectory.resolve(fileName), lines.asJava)
+    Files.write(baseDirectory.resolve(fileName), lines.asJava, Nil: _*)
   }
 }
