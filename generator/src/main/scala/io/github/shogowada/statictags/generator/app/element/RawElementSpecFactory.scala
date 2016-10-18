@@ -1,12 +1,12 @@
 package io.github.shogowada.statictags.generator.app.element
 
-class ElementSpecFactory {
+class RawElementSpecFactory {
 
   val nameColumnName = "Element"
 
-  def createSpecs(rawSpec: Map[String, String]): Iterable[ElementSpec] = {
+  def createSpecs(rawSpec: Map[String, String]): Iterable[RawElementSpec] = {
     namesOf(rawSpec)
-        .map(name => ElementSpec(name = name))
+        .map(name => RawElementSpec(name = name))
   }
 
   def namesOf(rawSpec: Map[String, String]): Iterable[String] = {

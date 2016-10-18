@@ -2,10 +2,10 @@ package io.github.shogowada.statictags.generator.app.element
 
 import org.scalatest.Matchers
 
-class ElementSpecFactoryTest
+class RawElementSpecFactoryTest
     extends org.scalatest.path.FunSpec
         with Matchers {
-  val target = new ElementSpecFactory
+  val target = new RawElementSpecFactory
 
   describe("given the raw spec contains single element") {
     val name = "foo"
@@ -15,7 +15,7 @@ class ElementSpecFactoryTest
 
     it("then it should create single element") {
       target.createSpecs(rawSpec).toList should equal(Seq(
-        ElementSpec(name = name)
+        RawElementSpec(name = name)
       ))
     }
   }
@@ -29,8 +29,8 @@ class ElementSpecFactoryTest
 
     it("then it should create multiple elements") {
       target.createSpecs(rawSpec).toList should equal(Seq(
-        ElementSpec(name = name1),
-        ElementSpec(name = name2)
+        RawElementSpec(name = name1),
+        RawElementSpec(name = name2)
       ))
     }
   }

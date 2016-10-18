@@ -4,13 +4,14 @@ import java.nio.file.Paths
 import javax.inject.Inject
 
 import com.github.tototoshi.csv.CSVReader
-import io.github.shogowada.statictags.generator.app.attribute.{AttributeSpec, AttributeSpecFactory}
-import io.github.shogowada.statictags.generator.app.element.ElementSpecFactory
+import io.github.shogowada.statictags.generator.app.attribute.{RawAttributeSpec, RawAttributeSpecFactory}
+import io.github.shogowada.statictags.generator.app.common.Utils
+import io.github.shogowada.statictags.generator.app.element.RawElementSpecFactory
 
 class App @Inject()
 (
-    attributeSpecFactory: AttributeSpecFactory,
-    elementSpecFactory: ElementSpecFactory,
+    rawAttributeSpecFactory: RawAttributeSpecFactory,
+    rawElementSpecFactory: RawElementSpecFactory,
     codeGenerator: CodeGenerator
 ) {
   val attributesFileName = "Attributes.csv"
@@ -22,26 +23,26 @@ class App @Inject()
       .reduce((lhs, rhs) => lhs + "." + rhs)
 
   val generatedCodeBaseDirectory = Paths
-      .get("src", "main", "scala")
+      .get("statictags", "shared", "src", "main", "scala")
       .toAbsolutePath
       .resolve(packageNameAsPath)
 
   def run(): Unit = {
-    val attributeRawSpecs = loadRawSpecs(attributesFileName)
-    val elementRawSpecs = loadRawSpecs(elementsFileName)
+    val attributeSpecs = loadSpecs(attributesFileName)
+    val elementSpecs = loadSpecs(elementsFileName)
 
-    val attributeSpecs = attributeRawSpecs.map(attributeSpecFactory.createSpec)
-    val elementSpecs = elementRawSpecs.flatMap(elementSpecFactory.createSpecs)
+    val rawAttributeSpecs = attributeSpecs.map(rawAttributeSpecFactory.createSpec)
+    val rawElementSpecs = elementSpecs.flatMap(rawElementSpecFactory.createSpecs)
 
     codeGenerator.generate(
       generatedCodeBaseDirectory,
       packageName,
-      attributeSpecs.toSet.toSeq.sortBy((spec: AttributeSpec) => spec.name),
-      elementSpecs
+      rawAttributeSpecs.toSet.toSeq.sortBy((spec: RawAttributeSpec) => spec.name),
+      rawElementSpecs
     )
   }
 
-  def loadRawSpecs(fileName: String): Iterable[Map[String, String]] = {
+  def loadSpecs(fileName: String): Iterable[Map[String, String]] = {
     CSVReader.open(Utils.getFile(fileName)).allWithHeaders()
   }
 }

@@ -9,11 +9,11 @@ class ElementCodeGenerator @Inject()
     fieldNameFactory: FieldNameFactory
 ) {
 
-  def generate(elementSpecs: Iterable[ElementSpec]): List[String] = {
+  def generate(elementSpecs: Iterable[RawElementSpec]): List[String] = {
     elementSpecs.map(generate).toList
   }
 
-  def generate(spec: ElementSpec): String = {
-    s"""lazy val ${fieldNameFactory.create(spec.name)}: ElementSpec = ElementSpec(name = "${spec.name}")"""
+  def generate(spec: RawElementSpec): String = {
+    s"""lazy val ${fieldNameFactory.create(spec.name)} = ElementSpec("${spec.name}")"""
   }
 }

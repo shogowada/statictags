@@ -4,8 +4,9 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Path}
 import javax.inject.Inject
 
-import io.github.shogowada.statictags.generator.app.attribute.{AttributeCodeGenerator, AttributeSpec}
-import io.github.shogowada.statictags.generator.app.element.{ElementCodeGenerator, ElementSpec}
+import io.github.shogowada.statictags.generator.app.attribute.{AttributeCodeGenerator, RawAttributeSpec}
+import io.github.shogowada.statictags.generator.app.common.Utils
+import io.github.shogowada.statictags.generator.app.element.{ElementCodeGenerator, RawElementSpec}
 
 import scala.collection.JavaConverters._
 
@@ -25,8 +26,8 @@ class CodeGenerator @Inject()
 
   def generate(baseDirectory: Path,
                packageName: String,
-               attributeSpecs: Iterable[AttributeSpec],
-               elementSpecs: Iterable[ElementSpec]): Unit = {
+               attributeSpecs: Iterable[RawAttributeSpec],
+               elementSpecs: Iterable[RawElementSpec]): Unit = {
     var lines = Files.readAllLines(templateFilePath, StandardCharsets.UTF_8).asScala.toList
 
     lines = inject(lines, packageNamePlaceholder, packageName)

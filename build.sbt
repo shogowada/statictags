@@ -10,6 +10,9 @@ val commonSettings = Seq(
 lazy val statictags = crossProject
     .settings(commonSettings: _*)
 
+lazy val jvm = statictags.jvm
+lazy val js = statictags.js
+
 lazy val generator = (project in file("generator"))
     .settings(commonSettings: _*)
     .settings(
@@ -21,3 +24,4 @@ lazy val generator = (project in file("generator"))
         "org.scalatest" %% "scalatest" % "3.0.0" % "test"
       )
     )
+    .dependsOn(jvm)

@@ -1,3 +1,3 @@
 package io.github.shogowada.statictags.generator.app.element
 
-case class ElementSpec(name: String)
+case class RawElementSpec(name: String)
