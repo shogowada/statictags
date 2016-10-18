@@ -74,6 +74,6 @@ class CodeGenerator @Inject()
 
   private def generate(baseDirectory: Path, className: String, lines: List[String]): Unit = {
     Files.createDirectories(baseDirectory)
-    Files.write(baseDirectory.resolve(fileName), lines.asJava, StandardCharsets.UTF_8, Nil: _*)
+    Files.write(baseDirectory.resolve(fileName), lines.asJava, StandardCharsets.UTF_8)
   }
 }

@@ -3,7 +3,7 @@ package io.github.shogowada.statictags
 // This file is generated. Do not modify manually.
 object StaticTags {
 
-  object < {
+  class Elements {
     lazy val a: ElementSpec = ElementSpec(name = "a")
     lazy val abbr: ElementSpec = ElementSpec(name = "abbr")
     lazy val address: ElementSpec = ElementSpec(name = "address")
@@ -114,7 +114,7 @@ object StaticTags {
     lazy val wbr: ElementSpec = ElementSpec(name = "wbr")
   }
 
-  object ^ {
+  class Attributes {
     lazy val abbr: AttributeSpec[String] = AttributeSpec[String](name = "abbr")
     lazy val accept: AttributeSpec[String] = AttributeSpec[String](name = "accept")
     lazy val `accept-charset`: AttributeSpec[String] = AttributeSpec[String](name = "accept-charset")
@@ -218,5 +218,9 @@ object StaticTags {
     lazy val width: AttributeSpec[String] = AttributeSpec[String](name = "width")
     lazy val wrap: AttributeSpec[String] = AttributeSpec[String](name = "wrap")
   }
+
+  val < = new Elements()
+
+  val ^ = new Attributes()
 
 }

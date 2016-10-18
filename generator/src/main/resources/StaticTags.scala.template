@@ -3,12 +3,16 @@ package @package
 // This file is generated. Do not modify manually.
 object @class {
 
-  object < {
+  class Elements {
     @elements
   }
 
-  object ^ {
+  class Attributes {
     @attributes
   }
+
+  val < = new Elements()
+
+  val ^ = new Attributes()
 
 }
