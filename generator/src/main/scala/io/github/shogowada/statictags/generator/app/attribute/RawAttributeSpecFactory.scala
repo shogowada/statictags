@@ -25,6 +25,7 @@ class RawAttributeSpecFactory {
       case _ if name == "step" => BigDecimalOrAnyAttributeSpec.getClass
       case _ if name == "value" => ValueAttributeSpec.getClass
       case _ if value.contains("Boolean attribute") => BooleanAttributeSpec.getClass
+      case _ if value.contains("CSS declarations") => CssAttributeSpec.getClass
       case _ if value.contains("Ordered set of unique space-separated tokens") => OrderedSetOfUniqueSpaceSeparatedStringAttributeSpec.getClass
       case _ if value.contains("Regular expression matching the JavaScript Pattern production") => RegexAttributeSpec.getClass
       case _ if value.contains("Unordered set of unique space-separated tokens") => SetOfUniqueSpaceSeparatedStringAttributeSpec.getClass
@@ -34,9 +35,9 @@ class RawAttributeSpecFactory {
       case _ if value.contains("Valid integer") => IntegerAttributeSpec.getClass
       case _ if value.contains("Valid non-negative integer") => IntegerAttributeSpec.getClass
       case _ if value.contains("Valid list of integers") => CommaSeparatedIntegerAttributeSpec.getClass
-      case _ if value == """"true"; "false"""" => StringBooleanAttributeSpec.getClass
-      case _ if value == """"on"; "off"""" => StringBooleanOnOffAttributeSpec.getClass
-      case _ if value == """"yes"; "no"""" => StringBooleanYesNoAttributeSpec.getClass
+      case _ if value == """"true"; "false"""" => TrueOrFalseAttributeSpec.getClass
+      case _ if value == """"on"; "off"""" => OnOrOffAttributeSpec.getClass
+      case _ if value == """"yes"; "no"""" => YesOrNoAttributeSpec.getClass
       case _ => StringAttributeSpec.getClass
     }
   }
