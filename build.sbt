@@ -1,3 +1,12 @@
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  isSnapshot.value match {
+    case true => Some("snapshots" at nexus + "content/repositories/snapshots")
+    case false => Some("releases" at nexus + "service/local/staging/deploy/maven2")
+  }
+}
+publishArtifact := false
+
 val commonSettings = Seq(
   organization := "io.github.shogowada.statictags",
   version := "0.1.0-SNAPSHOT",
