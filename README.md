@@ -1,5 +1,6 @@
 # Static Tags
-[![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=master)](https://travis-ci.org/shogowada/statictags)
+master: [![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=master)](https://travis-ci.org/shogowada/statictags)
+develop: [![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=develop)](https://travis-ci.org/shogowada/statictags)
 
 ## Generator
 
