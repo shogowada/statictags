@@ -99,10 +99,6 @@ case class SetOfUniqueSpaceSeparatedStringAttributeSpec(name: String) extends At
 }
 
 case class SpaceSeparatedStringAttributeSpec(name: String) extends AttributeSpec {
-  def :=(value: String): Attribute[String] = {
-    Attribute[String](name = name, value = value)
-  }
-
   def :=(value: Iterable[String]): Attribute[Iterable[String]] = {
     Attribute[Iterable[String]](name = name, value = value, valueType = SPACE_SEPARATED)
   }

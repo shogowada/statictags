@@ -1,6 +1,6 @@
 package io.github.shogowada.statictags
 
-import io.github.shogowada.statictags.AttributeValueType.{AttributeValueType, DEFAULT}
+import io.github.shogowada.statictags.AttributeValueType.{AttributeValueType, DEFAULT, SPACE_SEPARATED}
 
 object AttributeValueType {
 
@@ -22,4 +22,12 @@ object AttributeValueType {
 
 }
 
-case class Attribute[Value](name: String, value: Value, valueType: AttributeValueType = DEFAULT)
+case class Attribute[Value](name: String, value: Value, valueType: AttributeValueType = DEFAULT) {
+  override def toString: String = {
+    val valueAsString: String = this match {
+      case Attribute(_, values: Iterable[_], SPACE_SEPARATED) => values.map(_.toString).reduce((lhs, rhs) => lhs + " " + rhs)
+      case Attribute(_, _, _) => value.toString
+    }
+    s"""$name="$valueAsString""""
+  }
+}
