@@ -1,6 +1,6 @@
 package io.github.shogowada.statictags
 
-import io.github.shogowada.statictags.AttributeValueType.{AttributeValueType, DEFAULT, SPACE_SEPARATED}
+import io.github.shogowada.statictags.AttributeValueType._
 
 object AttributeValueType {
 
@@ -23,11 +23,40 @@ object AttributeValueType {
 }
 
 case class Attribute[Value](name: String, value: Value, valueType: AttributeValueType = DEFAULT) {
-  override def toString: String = {
-    val valueAsString: String = this match {
-      case Attribute(_, values: Iterable[_], SPACE_SEPARATED) => values.map(_.toString).reduce((lhs, rhs) => lhs + " " + rhs)
-      case Attribute(_, _, _) => value.toString
+
+  implicit class RichBoolean(value: Boolean) {
+    def map[T](trueValue: T, falseValue: T): T = {
+      if (value) {
+        trueValue
+      } else {
+        falseValue
+      }
     }
-    s"""$name="$valueAsString""""
+  }
+
+  override def toString: String = {
+    this match {
+      case Attribute(_, values: Iterable[_], COMMA_SEPARATED) => name + quoteAndAddEqual(delimitValues(values, ","))
+      case Attribute(_, values: Iterable[_], SPACE_SEPARATED) => name + quoteAndAddEqual(delimitValues(values, " "))
+      case Attribute(_, valueMap: Map[_, _], CSS) => name + quoteAndAddEqual(formatCss(valueMap))
+      case Attribute(_, theValue: Boolean, ON_OR_OFF) => name + quoteAndAddEqual(theValue.map("on", "off"))
+      case Attribute(_, theValue: Boolean, TRUE_OR_FALSE) => name + quoteAndAddEqual(theValue.map("true", "false"))
+      case Attribute(_, theValue: Boolean, YES_OR_NO) => name + quoteAndAddEqual(theValue.map("yes", "no"))
+      case Attribute(_, theValue: Boolean, _) => theValue.map(name, "")
+      case Attribute(_, _, _) => name + quoteAndAddEqual(value.toString)
+    }
+  }
+
+  private def delimitValues(values: Iterable[_], delimiter: String): String = {
+    values.map(_.toString).reduce((lhs, rhs) => lhs + delimiter + rhs)
+  }
+
+  private def formatCss(valueMap: Map[_, _]): String = {
+    valueMap.map(pair => pair._1.toString + ":" + pair._2.toString + ";")
+        .reduce((lhs, rhs) => lhs + rhs)
+  }
+
+  private def quoteAndAddEqual(value: String): String = {
+    s"""="$value""""
   }
 }

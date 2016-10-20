@@ -19,7 +19,7 @@ class RawAttributeSpecFactory {
 
   def createSpecType(name: String, value: String): Class[_] = {
     value match {
-      case _ if name == "autocomplete" => StringAttributeSpec.getClass
+      case _ if name == "autocomplete" => AutoCompleteAttributeSpec.getClass
       case _ if name == "for" => SetOfUniqueSpaceSeparatedStringAttributeSpec.getClass
       case _ if Set("max", "min").contains(name) => BigDecimalAttributeSpec.getClass
       case _ if name == "step" => BigDecimalOrAnyAttributeSpec.getClass
@@ -36,7 +36,6 @@ class RawAttributeSpecFactory {
       case _ if value.contains("Valid non-negative integer") => IntegerAttributeSpec.getClass
       case _ if value.contains("Valid list of integers") => CommaSeparatedIntegerAttributeSpec.getClass
       case _ if value == """"true"; "false"""" => TrueOrFalseAttributeSpec.getClass
-      case _ if value == """"on"; "off"""" => OnOrOffAttributeSpec.getClass
       case _ if value == """"yes"; "no"""" => YesOrNoAttributeSpec.getClass
       case _ => StringAttributeSpec.getClass
     }

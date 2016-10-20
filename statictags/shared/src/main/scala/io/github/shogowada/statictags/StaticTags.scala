@@ -122,7 +122,7 @@ object StaticTags {
     lazy val action = StringAttributeSpec("action")
     lazy val alt = StringAttributeSpec("alt")
     lazy val async = BooleanAttributeSpec("async")
-    lazy val autocomplete = StringAttributeSpec("autocomplete")
+    lazy val autocomplete = AutoCompleteAttributeSpec("autocomplete")
     lazy val autofocus = BooleanAttributeSpec("autofocus")
     lazy val autoplay = BooleanAttributeSpec("autoplay")
     lazy val border = StringAttributeSpec("border")

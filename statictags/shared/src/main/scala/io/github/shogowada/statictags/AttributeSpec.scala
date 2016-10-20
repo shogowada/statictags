@@ -8,6 +8,22 @@ trait AttributeSpec {
   val name: String
 }
 
+case class AutoCompleteAttributeSpec(name: String) extends AttributeSpec {
+  def :=(value: String) = {
+    Attribute(name = name, value = value)
+  }
+
+  def :=(value: Boolean): Attribute[Boolean] = {
+    value match {
+      case true => on
+      case false => off
+    }
+  }
+
+  lazy val on = Attribute[Boolean](name = name, value = true, valueType = ON_OR_OFF)
+  lazy val off = Attribute[Boolean](name = name, value = false, valueType = ON_OR_OFF)
+}
+
 case class BooleanAttributeSpec(name: String) extends AttributeSpec {
   def :=(value: Boolean): Attribute[Boolean] = {
     Attribute[Boolean](name = name, value = value)
@@ -58,18 +74,6 @@ case class IntegerAttributeSpec(name: String) extends AttributeSpec {
   def :=(value: Int): Attribute[Int] = {
     Attribute[Int](name = name, value = value)
   }
-}
-
-case class OnOrOffAttributeSpec(name: String) extends AttributeSpec {
-  def :=(value: Boolean): Attribute[Boolean] = {
-    value match {
-      case true => on
-      case false => off
-    }
-  }
-
-  lazy val on = Attribute[Boolean](name = name, value = true, valueType = ON_OR_OFF)
-  lazy val off = Attribute[Boolean](name = name, value = true, valueType = ON_OR_OFF)
 }
 
 case class OrderedSetOfUniqueSpaceSeparatedStringAttributeSpec(name: String) extends AttributeSpec {
