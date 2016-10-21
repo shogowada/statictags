@@ -21,15 +21,14 @@ class AttributeTest extends org.scalatest.path.FunSpec {
     (^.translate := false, """translate="no""""),
     (^.autocomplete := true, """autocomplete="on""""),
     (^.autocomplete := false, """autocomplete="off"""")
-  ).foreach(param => {
-    describe("given I have attribute " + param._1) {
-      val attribute = param._1
+  ).foreach { case (attribute, expectedString) =>
+    describe("given I have an attribute " + attribute) {
       describe("when I convert it to string") {
-        val actual = attribute.toString
-        it("then it should be " + param._2) {
-          assert(actual == param._2)
+        val actualString = attribute.toString
+        it("then it convert to " + expectedString) {
+          assert(actualString == expectedString)
         }
       }
     }
-  })
+  }
 }
