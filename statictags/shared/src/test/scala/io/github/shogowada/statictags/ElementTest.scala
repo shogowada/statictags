@@ -17,7 +17,13 @@ class ElementTest
       "This is just a text.",
       <.br.empty
     ) ->
-        """<div id="foo"><p>This is a paragraph.</p>This is just a text.<br/></div>"""
+        """<div id="foo"><p>This is a paragraph.</p>This is just a text.<br/></div>""",
+
+    <.div()(
+      "This is a text.",
+      "This is another text."
+    ) ->
+        """<div>This is a text. This is another text.</div>"""
   ).foreach { case (element: Element, expectedString: String) =>
     describe("given I am using a standard element like " + element) {
       it(s"then it should output HTML $expectedString when converted to string") {
