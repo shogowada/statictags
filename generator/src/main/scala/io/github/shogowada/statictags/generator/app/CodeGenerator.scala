@@ -70,7 +70,7 @@ class CodeGenerator @Inject()
   }
 
   private def inject(line: String, placeholder: String, replacement: String): String = {
-    line.replaceFirst(placeholder, replacement)
+    line.replaceAll(placeholder, replacement)
   }
 
   private def generate(baseDirectory: Path, className: String, lines: List[String]): Unit = {

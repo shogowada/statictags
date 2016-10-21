@@ -1,7 +1,7 @@
 package io.github.shogowada.statictags
 
 // This file is generated. Do not modify manually.
-object StaticTags {
+trait StaticTags {
 
   class Elements {
     lazy val a = ElementSpec("a", isSupposedToBeEmpty = false)
@@ -224,3 +224,5 @@ object StaticTags {
   val ^ = new Attributes()
 
 }
+
+object StaticTags extends StaticTags
