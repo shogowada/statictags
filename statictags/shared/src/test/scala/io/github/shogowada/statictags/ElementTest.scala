@@ -47,13 +47,13 @@ class ElementTest
       class MyAttributes extends Attributes {
 
         case class MyAttributeSpec(name: String) extends AttributeSpec {
-          def :=(value: Int) = {
+          def :=(value: Int) = { // Create an attribute with := operator
             Attribute[Int](name = name, value = value)
           }
 
-          lazy val one = this := 1
+          lazy val one = this := 1 // Or have an attribute as constant
 
-          def sumOf(lhs: Int, rhs: Int) = {
+          def sumOf(lhs: Int, rhs: Int) = { // Or create an attribute with custom function
             this := (lhs + rhs)
           }
         }
@@ -65,12 +65,13 @@ class ElementTest
       override val ^ = new MyAttributes
 
       implicit def asMyElementWrapper(element: Element): MyElementWrapper = {
+        // You can implicitly convert it into whatever you want!
         MyElementWrapper(element)
       }
     }
 
     describe("when I create elements with it") {
-      import MyStaticTags._
+      import MyStaticTags._ // This imports all of your custom code, including implicit conversion
 
       val element = <.div(
         ^.myAttribute.one

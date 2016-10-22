@@ -53,13 +53,13 @@ object MyStaticTags extends StaticTags {
   class MyAttributes extends Attributes {
 
     case class MyAttributeSpec(name: String) extends AttributeSpec {
-      def :=(value: Int) = {
+      def :=(value: Int) = { // Create an attribute with := operator
         Attribute[Int](name = name, value = value)
       }
 
-      lazy val one = this := 1
+      lazy val one = this := 1 // Or have an attribute as constant
 
-      def sumOf(lhs: Int, rhs: Int) = {
+      def sumOf(lhs: Int, rhs: Int) = { // Or create an attribute with custom function
         this := (lhs + rhs)
       }
     }
@@ -71,6 +71,7 @@ object MyStaticTags extends StaticTags {
   override val ^ = new MyAttributes
 
   implicit def asMyElementWrapper(element: Element): MyElementWrapper = {
+    // You can implicitly convert it into whatever you want!
     MyElementWrapper(element)
   }
 }
@@ -79,7 +80,7 @@ object MyStaticTags extends StaticTags {
 If you had code like above, you can use it like below.
 
 ```scala
-import MyStaticTags._
+import MyStaticTags._ // This imports all of your custom code, including implicit conversion
 
 val element = <.div(
   ^.myAttribute.one
