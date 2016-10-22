@@ -16,14 +16,21 @@ case class Element
           .reduce((lhs, rhs) => lhs + " " + rhs)
     }
 
-    val contentsAsString = contents.map(_.toString)
-        .reduceOption((lhs, rhs) => lhs + rhs)
-        .getOrElse("")
+    val contentStringBuilder = new StringBuilder
+    var maybePreviousContent: Option[Any] = None
+    for (content <- contents) {
+      if (!content.isInstanceOf[Element] && maybePreviousContent.exists(!_.isInstanceOf[Element])) {
+        contentStringBuilder.append(" ")
+      }
+      contentStringBuilder.append(content.toString)
+
+      maybePreviousContent = Some(content)
+    }
 
     if (isSupposedToBeEmpty && contents.isEmpty) {
       s"""<$name$attributesAsString/>"""
     } else {
-      s"""<$name$attributesAsString>$contentsAsString</$name>"""
+      s"""<$name$attributesAsString>${contentStringBuilder.toString}</$name>"""
     }
   }
 }

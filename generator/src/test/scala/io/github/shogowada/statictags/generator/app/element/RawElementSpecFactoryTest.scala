@@ -9,13 +9,15 @@ class RawElementSpecFactoryTest
 
   describe("given the raw spec contains single element") {
     val name = "foo"
+    val children = "empty"
     val rawSpec = Map(
-      "Element" -> name
+      "Element" -> name,
+      "Children" -> children
     )
 
     it("then it should create single element") {
       target.createSpecs(rawSpec).toList should equal(Seq(
-        RawElementSpec(name = name)
+        RawElementSpec(name = name, children = children)
       ))
     }
   }
@@ -23,14 +25,16 @@ class RawElementSpecFactoryTest
   describe("given the raw spec contains multiple elements") {
     val name1 = "foo"
     val name2 = "bar"
+    val children = "global"
     val rawSpec = Map(
-      "Element" -> s"$name1, $name2"
+      "Element" -> s"$name1, $name2",
+      "Children" -> children
     )
 
     it("then it should create multiple elements") {
       target.createSpecs(rawSpec).toList should equal(Seq(
-        RawElementSpec(name = name1),
-        RawElementSpec(name = name2)
+        RawElementSpec(name = name1, children = children),
+        RawElementSpec(name = name2, children = children)
       ))
     }
   }

@@ -2,6 +2,8 @@ package io.github.shogowada.statictags
 
 import io.github.shogowada.statictags.StaticTags._
 
+import scala.language.implicitConversions
+
 class ElementTest
     extends org.scalatest.path.FunSpec {
 
@@ -17,11 +19,80 @@ class ElementTest
       "This is just a text.",
       <.br.empty
     ) ->
-        """<div id="foo"><p>This is a paragraph.</p>This is just a text.<br/></div>"""
+        """<div id="foo"><p>This is a paragraph.</p>This is just a text.<br/></div>""",
+
+    <.div()(
+      "This is a text.",
+      "This is another text."
+    ) ->
+        """<div>This is a text. This is another text.</div>"""
   ).foreach { case (element: Element, expectedString: String) =>
     describe("given I am using a standard element like " + element) {
       it(s"then it should output HTML $expectedString when converted to string") {
         assert(element.toString == expectedString)
+      }
+    }
+  }
+
+  describe("given I have a custom StaticTags") {
+
+    case class MyElementWrapper(element: Element)
+
+    object MyStaticTags extends StaticTags {
+
+      class MyElements extends Elements {
+        lazy val myElement = ElementSpec(name = "myElement")
+      }
+
+      class MyAttributes extends Attributes {
+
+        case class MyAttributeSpec(name: String) extends AttributeSpec {
+          def :=(value: Int) = { // Create an attribute with := operator
+            Attribute[Int](name = name, value = value)
+          }
+
+          lazy val one = this := 1 // Or have an attribute as constant
+
+          def sumOf(lhs: Int, rhs: Int) = { // Or create an attribute with custom function
+            this := (lhs + rhs)
+          }
+        }
+
+        lazy val myAttribute = MyAttributeSpec("myAttribute")
+      }
+
+      override val < = new MyElements
+      override val ^ = new MyAttributes
+
+      implicit def asMyElementWrapper(element: Element): MyElementWrapper = {
+        // You can implicitly convert it into whatever you want!
+        MyElementWrapper(element)
+      }
+    }
+
+    describe("when I create elements with it") {
+      import MyStaticTags._ // This imports all of your custom code, including implicit conversion
+
+      val element = <.div(
+        ^.myAttribute.one
+      )(
+        <.myElement(
+          ^.`class` := Seq("my-element"),
+          ^.myAttribute := 2
+        )(
+          <.p(
+            ^.myAttribute.sumOf(1, 2)
+          )("How easy it is to extend the StaticTags!")
+        )
+      )
+
+      it("then it can be converted to HTML") {
+        assert(element.toString == """<div myAttribute="1"><myElement class="my-element" myAttribute="2"><p myAttribute="3">How easy it is to extend the StaticTags!</p></myElement></div>""")
+      }
+
+      it("then it can implicitly convert to my custom element") {
+        val myElementWrapper: MyElementWrapper = element
+        assert(myElementWrapper == MyElementWrapper(element))
       }
     }
   }
