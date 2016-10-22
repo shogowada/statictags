@@ -1,6 +1,6 @@
 package io.github.shogowada.statictags
 
-case class ElementSpec(name: String, isSupposedToBeEmpty: Boolean) {
+case class ElementSpec(name: String, isSupposedToBeEmpty: Boolean = false) {
   def apply(attributes: Attribute[_]*)(contents: Any*): Element = {
     Element(
       name = name,

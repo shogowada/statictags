@@ -42,24 +42,36 @@ Note that when you use Static Tags, for example, you don't need to worry if the 
 You can add your own elements and attributes, as well as your own deserializer. And it's super easy!
 
 ```scala
-class MyElements extends StaticTags.Elements {
-  lazy val myCustomElement = ElementSpec("myCustomElement")
-}
-
-class MyAttributes extends StaticTags.Attributes {
-  case class MyCustomAttribute(name: String) extends AttributeSpec {
-    def :=(value: MyCustomClass) = Attribute[String](name = name, value = value.toString)
-  }
-
-  lazy val myCustomStringAttribute = StringAttributeSpec("myCustomStringAttribute")
-}
+case class MyElementWrapper(element: Element)
 
 object MyStaticTags extends StaticTags {
-  override val < = new MyElements()
-  override val ^ = new MyAttributes()
-  
-  implicit def(element: Element): MyElement = {
-    // Deserialize Static Tags Element to your own MyElement here
+
+  class MyElements extends Elements {
+    lazy val myElement = ElementSpec(name = "myElement")
+  }
+
+  class MyAttributes extends Attributes {
+
+    case class MyAttributeSpec(name: String) extends AttributeSpec {
+      def :=(value: Int) = {
+        Attribute[Int](name = name, value = value)
+      }
+
+      lazy val one = this := 1
+
+      def sumOf(lhs: Int, rhs: Int) = {
+        this := (lhs + rhs)
+      }
+    }
+
+    lazy val myAttribute = MyAttributeSpec("myAttribute")
+  }
+
+  override val < = new MyElements
+  override val ^ = new MyAttributes
+
+  implicit def asMyElementWrapper(element: Element): MyElementWrapper = {
+    MyElementWrapper(element)
   }
 }
 ```
@@ -69,14 +81,22 @@ If you had code like above, you can use it like below.
 ```scala
 import MyStaticTags._
 
-class MyRenderer {
-  def render: MyElement = {
-    <.myCustomElement(
-      ^.myCustomAttribute := MyCustomClass(),
-      ^.myCustomStringAttribute := "My custom string attribute value"
-    )("Oh my, it's so easy!")
-  }
-}
+val element = <.div(
+  ^.myAttribute.one
+)(
+  <.myElement(
+    ^.`class` := Seq("my-element"),
+    ^.myAttribute := 2
+  )(
+    <.p(
+      ^.myAttribute.sumOf(1, 2)
+    )("How easy it is to extend the StaticTags!")
+  )
+)
+
+println(element) // Use it as HTML string
+
+val myElementWrapper: MyElementWrapper = element // Use it as your custom element
 ```
 
 ## Development
