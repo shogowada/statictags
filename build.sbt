@@ -27,7 +27,18 @@ val commonSettings = Seq(
       case true => Some("snapshots" at nexus + "content/repositories/snapshots")
       case false => Some("releases" at nexus + "service/local/staging/deploy/maven2")
     }
-  }
+  },
+  pomExtra := <scm>
+    <url>git@github.com:shogowada/statictags.git</url>
+    <connection>scm:git:git@github.com:shogowada/statictags.git</connection>
+  </scm>
+      <developers>
+        <developer>
+          <id>shogowada</id>
+          <name>Shogo Wada</name>
+          <url>https://github.com/shogowada</url>
+        </developer>
+      </developers>
 )
 
 lazy val root = project
