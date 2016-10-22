@@ -4,8 +4,8 @@ develop: [![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=
 
 |Target|Artifact|
 |---|---|
-|Scala|```"io.github.shogowada" %% "statictags" % "1.0.0-SNAPSHOT"```|
-|Scala JS|```"io.github.shogowada" %%% "statictags" % "1.0.0-SNAPSHOT"```|
+|Scala|```"io.github.shogowada" %% "statictags" % "1.0.0"```|
+|Scala JS|```"io.github.shogowada" %%% "statictags" % "1.0.0"```|
 
 Static Tags makes it easy for you to write HTML in Scala.
 
