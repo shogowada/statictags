@@ -17,9 +17,6 @@ val commonSettings = Seq(
   ivyScala := ivyScala.value.map {
     _.copy(overrideScalaVersion = true)
   },
-  libraryDependencies ++= Seq(
-    "org.scalatest" %% "scalatest" % "3.0.0" % "test"
-  ),
   publishMavenStyle := true,
   publishTo := {
     val nexus = "https://oss.sonatype.org/"
@@ -50,6 +47,11 @@ lazy val root = project
 
 lazy val statictags = crossProject
     .settings(commonSettings: _*)
+    .settings(
+      libraryDependencies ++= Seq(
+        "org.scalatest" %%% "scalatest" % "3.0.0" % "test"
+      )
+    )
 
 lazy val jvm = statictags.jvm
 lazy val js = statictags.js
@@ -60,7 +62,9 @@ lazy val generator = (project in file("generator"))
       name += "-generator",
       libraryDependencies ++= Seq(
         "com.google.inject" % "guice" % "4.1.0",
-        "com.github.tototoshi" %% "scala-csv" % "1.3.3"
+        "com.github.tototoshi" %% "scala-csv" % "1.3.3",
+
+        "org.scalatest" %% "scalatest" % "3.0.0" % "test"
       ),
       publishArtifact := false
     )

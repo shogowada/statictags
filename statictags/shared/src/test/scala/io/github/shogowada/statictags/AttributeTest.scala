@@ -3,6 +3,9 @@ package io.github.shogowada.statictags
 import io.github.shogowada.statictags.StaticTags._
 
 class AttributeTest extends org.scalatest.path.FunSpec {
+
+  override def newInstance = new AttributeTest
+
   Seq(
     (^.id := "foo") ->
         """id="foo"""",

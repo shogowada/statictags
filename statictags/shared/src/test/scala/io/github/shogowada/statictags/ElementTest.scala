@@ -7,6 +7,8 @@ import scala.language.implicitConversions
 class ElementTest
     extends org.scalatest.path.FunSpec {
 
+  override def newInstance = new ElementTest
+
   Seq(
     <.div()() ->
         """<div></div>""",
@@ -47,13 +49,15 @@ class ElementTest
       class MyAttributes extends Attributes {
 
         case class MyAttributeSpec(name: String) extends AttributeSpec {
-          def :=(value: Int) = { // Create an attribute with := operator
+          def :=(value: Int) = {
+            // Create an attribute with := operator
             Attribute[Int](name = name, value = value)
           }
 
           lazy val one = this := 1 // Or have an attribute as constant
 
-          def sumOf(lhs: Int, rhs: Int) = { // Or create an attribute with custom function
+          def sumOf(lhs: Int, rhs: Int) = {
+            // Or create an attribute with custom function
             this := (lhs + rhs)
           }
         }
@@ -71,7 +75,8 @@ class ElementTest
     }
 
     describe("when I create elements with it") {
-      import MyStaticTags._ // This imports all of your custom code, including implicit conversion
+      import MyStaticTags._
+      // This imports all of your custom code, including implicit conversion
 
       val element = <.div(
         ^.myAttribute.one
