@@ -1,6 +1,5 @@
 # Static Tags
-master: [![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=master)](https://travis-ci.org/shogowada/statictags)
-develop: [![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=develop)](https://travis-ci.org/shogowada/statictags)
+[![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=master)](https://travis-ci.org/shogowada/statictags)
 
 |Target|Artifact|
 |---|---|
@@ -102,6 +101,10 @@ val myElementWrapper: MyElementWrapper = element // Use it as your custom elemen
 
 ## Development
 
-### How to generate statictags code
+### How to generate Static Tags elements and attributes
+
+To make sure we got everything covered while making minimum mistakes, Static Tags elements and attributes are generated from the HTML spec. The spec was exported directly from [the w3 website](https://www.w3.org/TR/html5/) and stored as CSV.
+
+When Generator project is run, it will load the CSV and export the Static Tags elements and attributes.
 
 1. Run ```sbt generator/run``` from the project root.
