@@ -1,16 +1,18 @@
 # Static Tags
 [![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=master)](https://travis-ci.org/shogowada/statictags)
 
-|Target|Artifact|
-|---|---|
-|Scala|```"io.github.shogowada" %% "statictags" % "1.0.0"```|
-|Scala JS|```"io.github.shogowada" %%% "statictags" % "1.0.0"```|
+|Target|Artifact|Scala Version|Scala JS Version|
+|---|---|---|---|
+|Scala|```"io.github.shogowada" %% "statictags" % "1.0.0"```|2.11|NA|
+|Scala JS|```"io.github.shogowada" %%% "statictags" % "1.0.0"```|2.11|0.6|
 
 Static Tags makes it easy for you to write HTML in Scala.
 
 All Static Tags element can be converted to HTML via ```toString``` method.
 
 ```scala
+import io.github.shogowada.statictags.StaticTags._
+
 class ToUpperCase(text: String) {
   override def toString: String = text.toUpperCase
 }
