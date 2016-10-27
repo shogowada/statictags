@@ -20,7 +20,7 @@ class RawAttributeSpecFactory {
   def createSpecType(name: String, value: String): Class[_] = {
     value match {
       case _ if name == "autocomplete" => AutoCompleteAttributeSpec.getClass
-      case _ if name == "for" => SetOfUniqueSpaceSeparatedStringAttributeSpec.getClass
+      case _ if name == "for" => ForAttributeSpec.getClass
       case _ if Set("max", "min").contains(name) => BigDecimalAttributeSpec.getClass
       case _ if name == "step" => BigDecimalOrAnyAttributeSpec.getClass
       case _ if name == "value" => ValueAttributeSpec.getClass

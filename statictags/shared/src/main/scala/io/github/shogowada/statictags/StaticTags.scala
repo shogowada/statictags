@@ -147,7 +147,7 @@ trait StaticTags {
     lazy val disabled = BooleanAttributeSpec("disabled")
     lazy val download = StringAttributeSpec("download")
     lazy val enctype = StringAttributeSpec("enctype")
-    lazy val `for` = SetOfUniqueSpaceSeparatedStringAttributeSpec("for")
+    lazy val `for` = ForAttributeSpec("for")
     lazy val form = StringAttributeSpec("form")
     lazy val formaction = StringAttributeSpec("formaction")
     lazy val formenctype = StringAttributeSpec("formenctype")

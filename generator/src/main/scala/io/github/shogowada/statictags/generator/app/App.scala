@@ -1,6 +1,7 @@
 package io.github.shogowada.statictags.generator.app
 
-import java.nio.file.Paths
+import java.io.File
+import java.nio.file.{Path, Paths}
 import javax.inject.Inject
 
 import com.github.tototoshi.csv.CSVReader
@@ -22,12 +23,24 @@ class App @Inject()
       .map(packageNameAsPath.getName(_).toString)
       .reduce((lhs, rhs) => lhs + "." + rhs)
 
-  val generatedCodeBaseDirectory = Paths
-      .get("statictags", "shared", "src", "main", "scala")
-      .toAbsolutePath
-      .resolve(packageNameAsPath)
+  val baseDirectoryPropKey = "base.directory"
 
   def run(): Unit = {
+    val maybeBaseDirectory = sys.props.get(baseDirectoryPropKey)
+        .map(new File(_).toPath)
+    if (maybeBaseDirectory.isEmpty) {
+      println(s"$baseDirectoryPropKey system property is missing")
+      sys.exit(-1)
+      return
+    }
+    run(maybeBaseDirectory.get)
+  }
+
+  def run(baseDirectory: Path): Unit = {
+    val generatedCodeBaseDirectory = baseDirectory
+        .resolve("src").resolve("main").resolve("scala")
+        .resolve(packageNameAsPath)
+
     val attributeSpecs = loadSpecs(attributesFileName)
     val elementSpecs = loadSpecs(elementsFileName)
 

@@ -45,7 +45,7 @@ lazy val root = project
       publishArtifact := false
     )
 
-lazy val statictags = crossProject
+lazy val statictags = (crossProject in file("statictags"))
     .settings(commonSettings: _*)
     .settings(
       libraryDependencies ++= Seq(
@@ -66,6 +66,8 @@ lazy val generator = (project in file("generator"))
 
         "org.scalatest" %% "scalatest" % "3.0.0" % "test"
       ),
-      publishArtifact := false
+      publishArtifact := false,
+      (javaOptions in run) ++= Seq(s"-Dbase.directory=${(baseDirectory in jvm).value / ".." / "shared"}"),
+      (fork in run) := true
     )
     .dependsOn(jvm)

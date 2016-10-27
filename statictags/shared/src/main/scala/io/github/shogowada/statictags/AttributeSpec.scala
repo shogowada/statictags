@@ -70,6 +70,12 @@ case class CssAttributeSpec(name: String) extends AttributeSpec {
   }
 }
 
+case class ForAttributeSpec(name: String) extends AttributeSpec {
+  def :=(value: String) = Attribute[String](name = name, value = value)
+
+  def :=(value: Set[String]) = Attribute[Set[String]](name = name, value = value, valueType = SPACE_SEPARATED)
+}
+
 case class IntegerAttributeSpec(name: String) extends AttributeSpec {
   def :=(value: Int): Attribute[Int] = {
     Attribute[Int](name = name, value = value)
