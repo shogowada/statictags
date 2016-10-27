@@ -8,6 +8,8 @@
 
 Static Tags makes it easy for you to write HTML in Scala.
 
+## Examples
+
 All Static Tags element can be converted to HTML via ```toString``` method.
 
 ```scala
@@ -37,6 +39,18 @@ The above code will output the minified version of the following HTML.
 ```
 
 Note that when you use Static Tags, for example, you don't need to worry if the ```class``` attribute value was space delimited or comma delimited. You can just give it a collection of strings, and Static Tags takes care the rest for you. This is one of many advantages of using Static Tags!
+
+## Step by Spep
+
+1. Import Static Tags.
+    - ```import io.github.shogowada.statictags.StaticTags._```
+2. Start with ```<``` to write element.
+    - ```<.div```
+    - Think of ```<``` as the opening of standard tags (E.g. ```<div>```).
+3. Start with ```^``` to write attributes and pass it to the first parameter group.
+    - ```<.div(^.id := "foo")```
+4. Pass child elements to the second parameter group.
+    - ```<.div(^.id := "foo")("bar")```
 
 ## Extending Static Tags
 
