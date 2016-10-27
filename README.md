@@ -8,6 +8,12 @@
 
 Static Tags makes it easy for you to write HTML in Scala.
 
+- [Examples](#examples)
+- [Step by Step](#step-by-step)
+- [Notable Features](#notable-features)
+- [Extending Static Tags](#extending-static-tags)
+- [Development](#development)
+
 ## Examples
 
 All Static Tags element can be converted to HTML via ```toString``` method.
@@ -40,7 +46,7 @@ The above code will output the minified version of the following HTML.
 
 Note that when you use Static Tags, for example, you don't need to worry if the ```class``` attribute value was space delimited or comma delimited. You can just give it a collection of strings, and Static Tags takes care the rest for you. This is one of many advantages of using Static Tags!
 
-## Step by Spep
+## Step by Step
 
 1. Import Static Tags.
     - ```import io.github.shogowada.statictags.StaticTags._```
@@ -51,6 +57,42 @@ Note that when you use Static Tags, for example, you don't need to worry if the 
     - ```<.div(^.id := "foo")```
 4. Pass child elements to the second parameter group.
     - ```<.div(^.id := "foo")("bar")```
+    
+## Notable Features
+
+### Flattening elements in option
+
+```scala
+<.div()(
+  "When the element is an option,",
+  None,
+  Some("it will be flattened.")
+)
+```
+is equlvalent of
+```scala
+<.div()(
+  "When the element is an option,",
+  "it will be flattened."
+)
+```
+
+### Flattening elements in sequence
+
+```scala
+<.div()(
+  "When the element is a sequence,",
+  Seq("it will be", "flattened.")
+)
+```
+is equivalent of
+```
+<.div()(
+  "When the element is a sequence,",
+  "it will be",
+  "flattened."
+)
+```
 
 ## Extending Static Tags
 
