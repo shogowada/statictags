@@ -27,7 +27,20 @@ class ElementTest
       "This is a text.",
       "This is another text."
     ) ->
-        """<div>This is a text. This is another text.</div>"""
+        """<div>This is a text. This is another text.</div>""",
+
+    <.div()(
+      "When the element is a sequence,",
+      Seq("it will be", "flattened.")
+    ) ->
+        """<div>When the element is a sequence, it will be flattened.</div>""",
+
+    <.div()(
+      "When the element is an option,",
+      None,
+      Some("it will be flattened.")
+    ) ->
+        """<div>When the element is an option, it will be flattened.</div>"""
   ).foreach { case (element: Element, expectedString: String) =>
     describe("given I am using a standard element like " + element) {
       it(s"then it should output HTML $expectedString when converted to string") {

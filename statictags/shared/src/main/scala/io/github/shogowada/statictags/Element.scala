@@ -7,6 +7,17 @@ case class Element
     contents: Seq[Any],
     isSupposedToBeEmpty: Boolean = false
 ) {
+  val flattenedContents = contents
+      .flatMap(content => content match {
+        case value: Seq[_] => value
+        case _ => Seq(content)
+      })
+      .flatMap(content => content match {
+        case None => None
+        case Some(value) => Some(value)
+        case _ => Some(content)
+      })
+
   override def toString: String = {
     val attributesAsString = if (attributes.isEmpty) {
       ""
@@ -18,7 +29,7 @@ case class Element
 
     val contentStringBuilder = new StringBuilder
     var maybePreviousContent: Option[Any] = None
-    for (content <- contents) {
+    for (content <- flattenedContents) {
       if (!content.isInstanceOf[Element] && maybePreviousContent.exists(!_.isInstanceOf[Element])) {
         contentStringBuilder.append(" ")
       }
@@ -27,7 +38,7 @@ case class Element
       maybePreviousContent = Some(content)
     }
 
-    if (isSupposedToBeEmpty && contents.isEmpty) {
+    if (isSupposedToBeEmpty && flattenedContents.isEmpty) {
       s"""<$name$attributesAsString/>"""
     } else {
       s"""<$name$attributesAsString>${contentStringBuilder.toString}</$name>"""
