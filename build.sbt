@@ -7,13 +7,15 @@ publishTo := {
 }
 publishArtifact := false
 
+crossScalaVersions := Seq("2.11.8", "2.12.0")
+
 val commonSettings = Seq(
   organization := "io.github.shogowada",
   name := "statictags",
   version := "1.1.0-SNAPSHOT",
   licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
   homepage := Some(url("https://github.com/shogowada/statictags")),
-  scalaVersion := "2.11.8",
+  scalaVersion := "2.12.0",
   ivyScala := ivyScala.value.map {
     _.copy(overrideScalaVersion = true)
   },
@@ -62,7 +64,7 @@ lazy val generator = (project in file("generator"))
       name += "-generator",
       libraryDependencies ++= Seq(
         "com.google.inject" % "guice" % "4.1.0",
-        "com.github.tototoshi" %% "scala-csv" % "1.3.3",
+        "org.apache.commons" % "commons-csv" % "1.3",
 
         "org.scalatest" %% "scalatest" % "3.0.0" % "test"
       ),

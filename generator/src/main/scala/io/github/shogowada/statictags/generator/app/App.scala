@@ -1,13 +1,15 @@
 package io.github.shogowada.statictags.generator.app
 
-import java.io.File
+import java.io.{File, FileReader}
 import java.nio.file.{Path, Paths}
 import javax.inject.Inject
 
-import com.github.tototoshi.csv.CSVReader
 import io.github.shogowada.statictags.generator.app.attribute.{RawAttributeSpec, RawAttributeSpecFactory}
 import io.github.shogowada.statictags.generator.app.common.Utils
 import io.github.shogowada.statictags.generator.app.element.RawElementSpecFactory
+import org.apache.commons.csv.CSVFormat
+
+import scala.collection.JavaConverters._
 
 class App @Inject()
 (
@@ -56,6 +58,9 @@ class App @Inject()
   }
 
   def loadSpecs(fileName: String): Iterable[Map[String, String]] = {
-    CSVReader.open(Utils.getFile(fileName)).allWithHeaders()
+    val reader = new FileReader(Utils.getFile(fileName))
+    val records = CSVFormat.EXCEL.withFirstRecordAsHeader.parse(reader)
+    records.getRecords.asScala
+        .map(_.toMap.asScala.toMap)
   }
 }
