@@ -3,8 +3,8 @@
 
 |Target|Artifact|Scala Version|Scala JS Version|
 |---|---|---|---|
-|Scala|```"io.github.shogowada" %% "statictags" % "1.1.0"```|2.11|NA|
-|Scala JS|```"io.github.shogowada" %%% "statictags" % "1.1.0"```|2.11|0.6|
+|Scala|```"io.github.shogowada" %% "statictags" % "1.1.1"```|2.11, 2.12|NA|
+|Scala JS|```"io.github.shogowada" %%% "statictags" % "1.1.1"```|2.11, 2.12|0.6|
 
 Static Tags makes it easy for you to write HTML in Scala.
 
@@ -57,7 +57,7 @@ Note that when you use Static Tags, for example, you don't need to worry if the 
     - ```<.div(^.id := "foo")```
 4. Pass child elements to the second parameter group.
     - ```<.div(^.id := "foo")("bar")```
-    
+
 ## Notable Features
 
 ### Flattening elements in option
