@@ -3,27 +3,32 @@ package io.github.shogowada.statictags
 case class Element
 (
     name: String,
-    attributes: Iterable[Attribute[_]],
+    attributes: Iterable[Any],
     contents: Seq[Any],
     isSupposedToBeEmpty: Boolean = false
 ) {
-  val flattenedContents = contents
-      .flatMap(content => content match {
-        case value: Seq[_] => value
-        case _ => Seq(content)
+  lazy val flattenedAttributes: Iterable[Attribute[_]] = flatten(attributes)
+      .map(_.asInstanceOf[Attribute[_]])
+
+  lazy val flattenedContents: Seq[Any] = flatten(contents)
+      .toSeq
+
+  private def flatten(items: Iterable[Any]): Iterable[Any] = items
+      .flatMap(item => item match {
+        case value: Iterable[_] => value
+        case _ => Iterable(item)
       })
-      .flatMap(content => content match {
+      .flatMap(item => item match {
         case None => None
         case Some(value) => Some(value)
-        case _ => Some(content)
+        case _ => Some(item)
       })
 
   override def toString: String = {
-    val attributesAsString = if (attributes.isEmpty) {
+    val attributesAsString = if (flattenedAttributes.isEmpty) {
       ""
-    }
-    else {
-      " " + attributes.map(_.toString)
+    } else {
+      " " + flattenedAttributes.map(_.toString)
           .reduce((lhs, rhs) => lhs + " " + rhs)
     }
 

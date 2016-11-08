@@ -40,7 +40,13 @@ class ElementTest
       None,
       Some("it will be flattened.")
     ) ->
-        """<div>When the element is an option, it will be flattened.</div>"""
+        """<div>When the element is an option, it will be flattened.</div>""",
+
+    <.div(^.id := "foo", Seq(^.width := 100, ^.height := 200))() ->
+        """<div id="foo" width="100" height="200"></div>""",
+
+    <.div(^.id := "foo", None, Option(^.width := 100))() ->
+        """<div id="foo" width="100"></div>"""
   ).foreach { case (element: Element, expectedString: String) =>
     describe("given I am using a standard element like " + element) {
       it(s"then it should output HTML $expectedString when converted to string") {
