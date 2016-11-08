@@ -60,7 +60,7 @@ Note that when you use Static Tags, for example, you don't need to worry if the 
 
 ## Notable Features
 
-### Flattening elements in option
+### Flattening attributes and elements in option
 
 ```scala
 <.div()(
@@ -77,7 +77,9 @@ is equlvalent of
 )
 ```
 
-### Flattening elements in sequence
+You can do the same for attributes.
+
+### Flattening attributes and elements in sequence
 
 ```scala
 <.div()(
@@ -93,6 +95,8 @@ is equivalent of
   "flattened."
 )
 ```
+
+You can do the same for attributes.
 
 ## Extending Static Tags
 
