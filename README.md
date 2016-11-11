@@ -3,8 +3,8 @@
 
 |Target|Artifact|Scala Version|Scala JS Version|
 |---|---|---|---|
-|Scala|```"io.github.shogowada" %% "statictags" % "2.0.0"```|2.11, 2.12|NA|
-|Scala JS|```"io.github.shogowada" %%% "statictags" % "2.0.0"```|2.11, 2.12|0.6|
+|Scala|```"io.github.shogowada" %% "statictags" % "2.1.0"```|2.11, 2.12|NA|
+|Scala JS|```"io.github.shogowada" %%% "statictags" % "2.1.0"```|2.11, 2.12|0.6|
 
 Static Tags makes it easy for you to write HTML in Scala.
 
