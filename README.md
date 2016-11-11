@@ -60,43 +60,49 @@ Note that when you use Static Tags, for example, you don't need to worry if the 
 
 ## Notable Features
 
-### Flattening attributes and elements in option
+### Flattening attributes and elements
 
 ```scala
 <.div()(
   "When the element is an option,",
   None,
-  Some("it will be flattened.")
+  Some("it will be flattened."),
+  Seq(
+    "Elements in sequence",
+    "will be flattened too."
+  )
 )
 ```
 is equlvalent of
 ```scala
 <.div()(
   "When the element is an option,",
-  "it will be flattened."
+  "it will be flattened.",
+  "Elements in sequence",
+  "will be flattened too."
 )
 ```
 
 You can do the same for attributes.
 
-### Flattening attributes and elements in sequence
+### Dynamically writing attributes
+
+You can dynamically write attributes.
 
 ```scala
-<.div()(
-  "When the element is a sequence,",
-  Seq("it will be", "flattened.")
-)
+<.div(
+  ^("foo") := "bar",
+  ^("baz") := true,
+  ^("qux") := false
+)()
 ```
-is equivalent of
-```
-<.div()(
-  "When the element is a sequence,",
-  "it will be",
-  "flattened."
-)
+```html
+<div foo="bar" baz></div>
 ```
 
-You can do the same for attributes.
+However, if it is a custom attribute that's specific to your application, we'd recommend [extending Static Tags](extending-static-tags) so that you get full benefit of the Scala's strong type system.
+
+If it is a common attribute that's missing in the library, we'd appreciate if you could [create an issue](https://github.com/shogowada/statictags/issues) or PR.
 
 ## Extending Static Tags
 
