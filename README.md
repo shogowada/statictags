@@ -167,6 +167,8 @@ println(element) // Use it as HTML string
 val myElementWrapper: MyElementWrapper = element // Use it as your custom element
 ```
 
+If you want to create an add-on to Static Tags instead of building something on top of it, you can create an implicit class of ```Elements``` and ```Attributes``` too.
+
 ## Development
 
 ### How to generate Static Tags elements and attributes
