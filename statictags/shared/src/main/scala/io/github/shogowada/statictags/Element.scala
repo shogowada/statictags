@@ -29,6 +29,7 @@ case class Element
       ""
     } else {
       " " + flattenedAttributes.map(_.toString)
+          .filterNot(_.isEmpty)
           .reduce((lhs, rhs) => lhs + " " + rhs)
     }
 

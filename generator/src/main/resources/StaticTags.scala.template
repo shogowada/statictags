@@ -9,6 +9,8 @@ trait @class {
 
   class Attributes {
     @attributes
+
+    def apply(name: String) = DynamicAttributeSpec(name)
   }
 
   val < = new Elements()
