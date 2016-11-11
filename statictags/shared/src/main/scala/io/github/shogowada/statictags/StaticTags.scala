@@ -217,6 +217,8 @@ trait StaticTags {
     lazy val value = ValueAttributeSpec("value")
     lazy val width = IntegerAttributeSpec("width")
     lazy val wrap = StringAttributeSpec("wrap")
+
+    def apply(name: String) = DynamicAttributeSpec(name)
   }
 
   val < = new Elements()

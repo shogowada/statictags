@@ -70,6 +70,12 @@ case class CssAttributeSpec(name: String) extends AttributeSpec {
   }
 }
 
+case class DynamicAttributeSpec(name: String) extends AttributeSpec {
+  def :=(value: String) = Attribute[String](name = name, value = value)
+
+  def :=(value: Boolean) = Attribute[Boolean](name = name, value = value)
+}
+
 case class ForAttributeSpec(name: String) extends AttributeSpec {
   def :=(value: String) = Attribute[String](name = name, value = value)
 
