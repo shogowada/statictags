@@ -85,7 +85,7 @@ is equlvalent of
 
 You can do the same for attributes.
 
-### Dynamically writing attributes
+### Dynamically writing attributes (since 2.1.0)
 
 You can dynamically write attributes.
 
