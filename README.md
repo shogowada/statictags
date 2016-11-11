@@ -100,7 +100,7 @@ You can dynamically write attributes.
 <div foo="bar" baz></div>
 ```
 
-However, if it is a custom attribute that's specific to your application, we'd recommend [extending Static Tags](extending-static-tags) so that you get full benefit of the Scala's strong type system.
+However, if it is a custom attribute that's specific to your application, we'd recommend [extending Static Tags](#extending-static-tags) so that you get full benefit of the Scala's strong type system.
 
 If it is a common attribute that's missing in the library, we'd appreciate if you could [create an issue](https://github.com/shogowada/statictags/issues) or PR.
 
