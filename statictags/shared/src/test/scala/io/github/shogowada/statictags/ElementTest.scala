@@ -49,7 +49,10 @@ class ElementTest
         """<div id="foo" width="100"></div>""",
 
     <.div(^("foo") := "bar", ^("bar") := true, ^("baz") := false)() ->
-        """<div foo="bar" bar></div>"""
+        """<div foo="bar" bar></div>""",
+
+    <("foo")(^("bar") := "bar")("baz") ->
+        """<foo bar="bar">baz</foo>"""
   ).foreach { case (element: Element, expectedString: String) =>
     describe("given I am using a standard element like " + element) {
       it(s"then it should output HTML $expectedString when converted to string") {

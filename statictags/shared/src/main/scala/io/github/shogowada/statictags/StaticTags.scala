@@ -112,6 +112,8 @@ trait StaticTags {
     lazy val `var` = ElementSpec("var", isSupposedToBeEmpty = false)
     lazy val video = ElementSpec("video", isSupposedToBeEmpty = false)
     lazy val wbr = ElementSpec("wbr", isSupposedToBeEmpty = true)
+
+    def apply(name: String) = ElementSpec(name)
   }
 
   class Attributes {

@@ -7,15 +7,15 @@ publishTo := {
 }
 publishArtifact := false
 
-crossScalaVersions := Seq("2.11.8", "2.12.0")
+crossScalaVersions := Seq("2.11.8", "2.12.1")
 
 val commonSettings = Seq(
   organization := "io.github.shogowada",
   name := "statictags",
-  version := "2.1.2-SNAPSHOT",
+  version := "2.1.2",
   licenses := Seq("MIT" -> url("https://opensource.org/licenses/MIT")),
   homepage := Some(url("https://github.com/shogowada/statictags")),
-  scalaVersion := "2.12.0",
+  scalaVersion := "2.12.1",
   ivyScala := ivyScala.value.map {
     _.copy(overrideScalaVersion = true)
   },

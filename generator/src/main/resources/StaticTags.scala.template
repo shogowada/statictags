@@ -5,6 +5,8 @@ trait @class {
 
   class Elements {
     @elements
+
+    def apply(name: String) = ElementSpec(name)
   }
 
   class Attributes {

@@ -1,10 +1,10 @@
 # Static Tags
 [![Build Status](https://travis-ci.org/shogowada/statictags.svg?branch=master)](https://travis-ci.org/shogowada/statictags)
 
-|Target|Artifact|Scala Version|Scala JS Version|
+|Platform|Artifact|Scala Version|Scala JS Version|
 |---|---|---|---|
-|Scala|```"io.github.shogowada" %% "statictags" % "2.1.1"```|2.11, 2.12|NA|
-|Scala JS|```"io.github.shogowada" %%% "statictags" % "2.1.1"```|2.11, 2.12|0.6.14|
+|JVM|```"io.github.shogowada" %% "statictags" % "2.1.2"```|2.11, 2.12|NA|
+|JS|```"io.github.shogowada" %%% "statictags" % "2.1.2"```|2.11, 2.12|0.6.14+|
 
 Static Tags makes it easy for you to write HTML in Scala.
 
@@ -85,24 +85,24 @@ is equlvalent of
 
 You can do the same for attributes.
 
-### Dynamically writing attributes (since 2.1.0)
+### Dynamically writing elements and attributes (since 2.1.2)
 
-You can dynamically write attributes.
+You can dynamically write elements and attributes by using `<(String)` for elements and `^(String)` for attributes.
 
 ```scala
-<.div(
-  ^("foo") := "bar",
-  ^("baz") := true,
-  ^("qux") := false
+<("foo")(
+  ^("a") := "A",
+  ^("b") := true,
+  ^("c") := false
 )()
 ```
 ```html
-<div foo="bar" baz></div>
+<foo a="A" b></foo>
 ```
 
 However, if it is a custom attribute that's specific to your application, we'd recommend [extending Static Tags](#extending-static-tags) so that you get full benefit of the Scala's strong type system.
 
-If it is a standard attribute that's missing in the library, we'd appreciate if you could [create an issue](https://github.com/shogowada/statictags/issues) or PR.
+If it is a standard element or attribute that's missing in the library, we'd appreciate if you could [create an issue](https://github.com/shogowada/statictags/issues) or PR.
 
 ## Extending Static Tags
 
