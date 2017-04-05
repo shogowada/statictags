@@ -102,13 +102,13 @@ case class RegexAttributeSpec(name: String) extends AttributeSpec {
 }
 
 case class SetOfUniqueSpaceSeparatedStringAttributeSpec(name: String) extends AttributeSpec {
-  def :=(value: String) = this := Set(value)
+  def :=(value: String): Attribute[Set[String]] = this := Set(value)
   def :=(value: Set[String]): Attribute[Set[String]] =
     Attribute[Set[String]](name = name, value = value, valueType = SPACE_SEPARATED)
 }
 
 case class SpaceSeparatedStringAttributeSpec(name: String) extends AttributeSpec {
-  def :=(value: String) = this := Seq(value)
+  def :=(value: String): Attribute[Iterable[String]] = this := Seq(value)
   def :=(value: Iterable[String]): Attribute[Iterable[String]] =
     Attribute[Iterable[String]](name = name, value = value, valueType = SPACE_SEPARATED)
 }

@@ -3,8 +3,8 @@
 
 |Platform|Artifact|Scala Version|Scala JS Version|
 |---|---|---|---|
-|JVM|```"io.github.shogowada" %% "statictags" % "2.2.0"```|2.11, 2.12|NA|
-|JS|```"io.github.shogowada" %%% "statictags" % "2.2.0"```|2.11, 2.12|0.6.14+|
+|JVM|```"io.github.shogowada" %% "statictags" % "2.3.0"```|2.11, 2.12|NA|
+|JS|```"io.github.shogowada" %%% "statictags" % "2.3.0"```|2.11, 2.12|0.6.14+|
 
 Static Tags makes it easy for you to write HTML in Scala.
 
@@ -12,7 +12,6 @@ Static Tags makes it easy for you to write HTML in Scala.
 - [Step by Step](#step-by-step)
 - [Notable Features](#notable-features)
 - [Extending Static Tags](#extending-static-tags)
-- [Development](#development)
 
 ## Examples
 
@@ -85,7 +84,7 @@ is equlvalent of
 
 You can do the same for attributes.
 
-### Dynamically writing elements and attributes (since 2.1.2)
+### Dynamically writing elements and attributes
 
 You can dynamically write elements and attributes by using `<(String)` for elements and `^(String)` for attributes.
 
@@ -103,6 +102,31 @@ You can dynamically write elements and attributes by using `<(String)` for eleme
 However, if it is a custom attribute that's specific to your application, we'd recommend [extending Static Tags](#extending-static-tags) so that you get full benefit of the Scala's strong type system.
 
 If it is a standard element or attribute that's missing in the library, we'd appreciate if you could [create an issue](https://github.com/shogowada/statictags/issues) or PR.
+
+### Static "type" attribute values
+
+All the standard "type" attribute values are defined. You can assess them like this:
+
+```scala
+<.input(^.`type`.password)()
+```
+
+It will construct the following HTML:
+
+```html
+<input type="password">
+```
+
+### Static media types
+
+All the standard media types are defined at `MediaTypes` object.
+
+Example:
+```scala
+import io.github.shogowada.statictags.MediaTypes
+
+MediaTypes.`application/json`
+```
 
 ## Extending Static Tags
 
@@ -168,13 +192,3 @@ val myElementWrapper: MyElementWrapper = element // Use it as your custom elemen
 ```
 
 If you want to create an add-on to Static Tags instead of building something on top of it, you can create an implicit class of ```Elements``` and ```Attributes``` too.
-
-## Development
-
-### How to generate Static Tags elements and attributes
-
-To make sure we got everything covered while making minimum mistakes, Static Tags elements and attributes are generated from the HTML spec. The spec was exported directly from [the w3 website](https://www.w3.org/TR/html5/) and stored as CSV.
-
-When Generator project is run, it will load the CSV and export the Static Tags elements and attributes.
-
-1. Run ```sbt generator/run``` from the project root.
