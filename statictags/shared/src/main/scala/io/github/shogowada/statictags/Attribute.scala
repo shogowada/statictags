@@ -25,7 +25,7 @@ object AttributeValueType {
 case class Attribute[Value](name: String, value: Value, valueType: AttributeValueType = DEFAULT) {
 
   implicit class RichBoolean(value: Boolean) {
-    def map[T](trueValue: T, falseValue: T): T = {
+    def fold[T](trueValue: T, falseValue: T): T = {
       if (value) {
         trueValue
       } else {
@@ -34,29 +34,29 @@ case class Attribute[Value](name: String, value: Value, valueType: AttributeValu
     }
   }
 
-  override def toString: String = {
+  override def toString: String =
     this match {
-      case Attribute(_, values: Iterable[_], COMMA_SEPARATED) => name + quoteAndAddEqual(delimitValues(values, ","))
-      case Attribute(_, values: Iterable[_], SPACE_SEPARATED) => name + quoteAndAddEqual(delimitValues(values, " "))
-      case Attribute(_, valueMap: Map[_, _], CSS) => name + quoteAndAddEqual(formatCss(valueMap))
-      case Attribute(_, theValue: Boolean, ON_OR_OFF) => name + quoteAndAddEqual(theValue.map("on", "off"))
-      case Attribute(_, theValue: Boolean, TRUE_OR_FALSE) => name + quoteAndAddEqual(theValue.map("true", "false"))
-      case Attribute(_, theValue: Boolean, YES_OR_NO) => name + quoteAndAddEqual(theValue.map("yes", "no"))
-      case Attribute(_, theValue: Boolean, _) => theValue.map(name, "")
-      case Attribute(_, _, _) => name + quoteAndAddEqual(value.toString)
+      case Attribute(_, _: Boolean, DEFAULT) => valueToString
+      case _ => name + quoteAndAddEqual(valueToString)
     }
-  }
 
-  private def delimitValues(values: Iterable[_], delimiter: String): String = {
-    values.map(_.toString).reduce((lhs, rhs) => lhs + delimiter + rhs)
-  }
+  def valueToString: String =
+    this match {
+      case Attribute(_, values: Iterable[_], COMMA_SEPARATED) => delimitValues(values, ",")
+      case Attribute(_, values: Iterable[_], SPACE_SEPARATED) => delimitValues(values, " ")
+      case Attribute(_, valueMap: Map[_, _], CSS) => formatCss(valueMap)
+      case Attribute(_, theValue: Boolean, ON_OR_OFF) => theValue.fold("on", "off")
+      case Attribute(_, theValue: Boolean, TRUE_OR_FALSE) => theValue.fold("true", "false")
+      case Attribute(_, theValue: Boolean, YES_OR_NO) => theValue.fold("yes", "no")
+      case Attribute(_, theValue: Boolean, DEFAULT) => theValue.fold(name, "")
+      case Attribute(_, _, _) => value.toString
+    }
 
-  private def formatCss(valueMap: Map[_, _]): String = {
-    valueMap.map(pair => pair._1.toString + ":" + pair._2.toString + ";")
-        .reduce((lhs, rhs) => lhs + rhs)
-  }
+  private def delimitValues(values: Iterable[_], delimiter: String): String =
+    values.map(_.toString).mkString(delimiter)
 
-  private def quoteAndAddEqual(value: String): String = {
-    s"""="$value""""
-  }
+  private def formatCss(valueMap: Map[_, _]): String =
+    valueMap.map { case (cssKey, cssValue) => s"$cssKey:$cssValue;" }.mkString
+
+  private def quoteAndAddEqual(value: String): String = s"""="$value""""
 }
