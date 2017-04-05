@@ -41,7 +41,7 @@ val commonSettings = Seq(
 )
 
 lazy val root = project
-    .aggregate(jvm, js, generator)
+    .aggregate(jvm, js)
     .settings(commonSettings: _*)
     .settings(
       publishArtifact := false
@@ -57,19 +57,3 @@ lazy val statictags = (crossProject in file("statictags"))
 
 lazy val jvm = statictags.jvm
 lazy val js = statictags.js
-
-lazy val generator = (project in file("generator"))
-    .settings(commonSettings: _*)
-    .settings(
-      name += "-generator",
-      libraryDependencies ++= Seq(
-        "com.google.inject" % "guice" % "4.1.0",
-        "org.apache.commons" % "commons-csv" % "1.3",
-
-        "org.scalatest" %% "scalatest" % "3.0.0" % "test"
-      ),
-      publishArtifact := false,
-      (javaOptions in run) ++= Seq(s"-Dbase.directory=${(baseDirectory in jvm).value / ".." / "shared"}"),
-      (fork in run) := true
-    )
-    .dependsOn(jvm)
