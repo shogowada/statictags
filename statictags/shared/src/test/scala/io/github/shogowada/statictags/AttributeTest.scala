@@ -1,5 +1,6 @@
 package io.github.shogowada.statictags
 
+import io.github.shogowada.statictags.AttributeValueType.AttributeValueType
 import io.github.shogowada.statictags.StaticTags._
 
 class AttributeTest extends org.scalatest.path.FunSpec {
@@ -66,5 +67,26 @@ class AttributeTest extends org.scalatest.path.FunSpec {
           }
         }
       }
+  }
+
+  describe("given I have custom attribute with custom value type") {
+    case object CUSTOM extends AttributeValueType
+    case class CustomAttributeSpec(name: String) extends AttributeSpec {
+      def :=(value: Set[String]): Attribute[Set[String]] = Attribute(name, value, CUSTOM)
+    }
+    val customAttributeSpec = CustomAttributeSpec("custom")
+
+    describe("when I use it") {
+      val value = Set("A", "B", "C")
+      val customAttribute = customAttributeSpec := value
+
+      it("then it should preserve the value") {
+        assert(customAttribute.value == value)
+      }
+
+      it("then it should preserve the value type") {
+        assert(customAttribute.valueType == CUSTOM)
+      }
+    }
   }
 }
