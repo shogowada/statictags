@@ -42,6 +42,12 @@ class ElementTest
     ) ->
         """<div>When the element is an option, it will be flattened.</div>""",
 
+    <.input(
+      ^.`type`.text,
+      Seq(^.placeholder := "foo", Option(^.disabled := true), Seq(^.value := "bar"))
+    )() ->
+        """<input type="text" placeholder="foo" disabled value="bar"/>""",
+
     <.div(^.id := "foo", Seq(^.width := 100, ^.height := 200))() ->
         """<div id="foo" width="100" height="200"></div>""",
 

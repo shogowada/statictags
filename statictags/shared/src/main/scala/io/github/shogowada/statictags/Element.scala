@@ -1,5 +1,25 @@
 package io.github.shogowada.statictags
 
+import scala.collection.mutable.ArrayBuffer
+
+object Element {
+  def flattenAttributes(attributes: Iterable[Any]): Iterable[Attribute[_]] = flatten(attributes)
+      .map(_.asInstanceOf[Attribute[_]])
+
+  def flattenContents(contents: Seq[Any]): Seq[Any] = flatten(contents).toSeq
+
+  def flatten(items: Iterable[Any]): Iterable[Any] = {
+    val buffer = ArrayBuffer[Any]()
+    items.foreach {
+      case items: Iterable[_] => buffer ++= flatten(items)
+      case Some(item) => buffer += item
+      case None =>
+      case item => buffer += item
+    }
+    buffer
+  }
+}
+
 case class Element
 (
     name: String,
@@ -7,22 +27,12 @@ case class Element
     contents: Seq[Any],
     isSupposedToBeEmpty: Boolean = false
 ) {
-  lazy val flattenedAttributes: Iterable[Attribute[_]] = flatten(attributes)
-      .map(_.asInstanceOf[Attribute[_]])
 
-  lazy val flattenedContents: Seq[Any] = flatten(contents)
-      .toSeq
+  import Element._
 
-  private def flatten(items: Iterable[Any]): Iterable[Any] = items
-      .flatMap(item => item match {
-        case value: Iterable[_] => value
-        case _ => Iterable(item)
-      })
-      .flatMap(item => item match {
-        case None => None
-        case Some(value) => Some(value)
-        case _ => Some(item)
-      })
+  lazy val flattenedAttributes: Iterable[Attribute[_]] = flattenAttributes(attributes)
+
+  lazy val flattenedContents: Seq[Any] = flattenContents(contents)
 
   override def toString: String = {
     val attributesAsString = if (flattenedAttributes.isEmpty) {
