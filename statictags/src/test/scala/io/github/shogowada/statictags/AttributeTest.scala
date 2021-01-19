@@ -2,8 +2,9 @@ package io.github.shogowada.statictags
 
 import io.github.shogowada.statictags.AttributeValueType.AttributeValueType
 import io.github.shogowada.statictags.StaticTags._
+import org.scalatest.funspec.PathAnyFunSpec
 
-class AttributeTest extends org.scalatest.path.FunSpec {
+class AttributeTest extends PathAnyFunSpec {
 
   override def newInstance = new AttributeTest
 

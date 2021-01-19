@@ -1,11 +1,11 @@
 package io.github.shogowada.statictags
 
 import io.github.shogowada.statictags.StaticTags._
+import org.scalatest.funspec.PathAnyFunSpec
 
 import scala.language.implicitConversions
 
-class ElementTest
-    extends org.scalatest.path.FunSpec {
+class ElementTest extends PathAnyFunSpec {
 
   override def newInstance = new ElementTest
 

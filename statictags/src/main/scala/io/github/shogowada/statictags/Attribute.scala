@@ -48,7 +48,7 @@ case class Attribute[Value](name: String, value: Value, valueType: AttributeValu
     values.map(_.toString).mkString(delimiter)
 
   private def formatCss(valueMap: Map[_, _]): String =
-    valueMap.map { case (cssKey, cssValue) => s"$cssKey:$cssValue;" }.mkString
+    valueMap.map { (kv: (_, _)) => s"${kv._1}:${kv._2};" }.mkString
 
   private def quoteAndAddEqual(value: String): String = s"""="$value""""
 }
